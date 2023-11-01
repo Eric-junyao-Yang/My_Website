@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉Eric J.Y. Yang🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <!---Sliding Menu-->
+    <nav id="sideNav">
+        <ul>
+            <li><a href="#">ABOUT ME</a></li>
+            <li><a href="#">SCIENCE</a></li>
+            <li><a href="#">MUSIC</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <img src="images/menu.svg" id="menuBtn">
+
+    <!---About Me-->
+    <section id = "AboutMe">
+        <div class = "about-left-col">
+            <div class = "image-container">
+                <div class = "current-image">
+                    <img src="images/MyPics/1_Original.png" id="cur-img">
+                </div>
+
+                <div class="previews">
+                    <img src="images/MyPics/1_Original.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/2_VanGogh.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/3_WaterColor.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/4_Monet.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/5_Pastel.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/6_Ink.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/7_JacksonPollock.png" onmouseover="change(this.src)">
+                    <img src="images/MyPics/8_Cubist.png" onmouseover="change(this.src)">
+                </div>
+
+
+
+                <div class = "image-options">
+
+                </div>
+                
+            </div>
+        </div>
+            
+        <div class = "about-right-col">
+            <div class="about-right-text">
+                <h1>Dr. Eric J.Y. Yang</h1>
+                <div class="div-lines">
+                    <span class="div-lines-1"></span>
+                    <span class="div-lines-2"></span>
+                    <span class="div-lines-3"></span>
+                </div>
+                
+                <div class="about-main-p">
+                    <p>I have a Molecular Engineering PhD from the University of Washington with the Data Science Certificate.
+                        I specialized in plant synthetic biology with a focus on engineering and understanding plant promoters. My scientific interests include:
+                    </p>
+                </div>
+                <br>
+                <br>
+                <div class="interests-container">
+                        <div class="interests-list">
+                            <p id = "SynBio" onmouseover="slide(this.id)">Synthetic <br> biology</p>
+                            <p id = "Circuits" onmouseover="slide(this.id)">Gene <br> circuits</p>
+                            <p id = "DataSci" onmouseover="slide(this.id)">Data <br> Science</p>
+                            <p id = "DataVis" onmouseover="slide(this.id)">Data <br> Visualization</p>
+                            <p id = "ML" onmouseover="slide(this.id)">Machine <br> Learning</p>
+                        </div>
+                        
+                        <div class="text-bubble">
+                            <p id = bubble-text></p>
+                        </div>
+                    </div>
+                </div>
+
+
+ 
+            </div>
+        </div>
+    </section>
+
+<!-- Science -->
+    <section id="Science">
+        <div class="Science-title">
+            <h1>Science</h1>
+        </div>
+        <div class="manuscripts-container">
+            <div class="manuscript-icon" id = "manuscript-icon"></div>
+            <div class="manuscript manuscript-transition" id = "manuscript1">
+                <h4>Building a pipeline to identify and engineer constitutive and repressible promoters</h4>
+            </div>
+            <div class="manuscript manuscript-transition" id = "manuscript2">
+                <h4>A comparative analysis of stably expressed genes across diverse angiosperms exposes flexibility in underlying promoter architecture</h4>
+            </div>
+        </div>
+
+        <div class="Observable" id = "Observable">
+            <div class="Observable-left">
+                <iframe width="100%" height="100%" frameborder="0"
+                src="https://observablehq.com/embed/15a480dacc56a549@335?cells=Title%2CDescription"></iframe>
+            </div>
+    
+            <div class="Observable-right">
+                <div class="Observable-right-padding"></div>
+                <iframe width="100%" height="93%" frameborder="0" src="https://observablehq.com/embed/15a480dacc56a549@343?cells=viewof+Coretypes%2CFigure"></iframe>
+            </div>
+        </div> 
+
+        <div class="manuscript-info" id="manuscript-info">
+            <div class="Science-left-col">
+                <h3>Background</h3>
+                <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
+                <h3>Problem</h3>
+                <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
+                <h3>Our approach</h3>
+                <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
+                <p onclick="toggle_observable()"> (Explore an interactive figure I made!) </p>
+                <h3>Results</h3>
+                <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
+            </div>
+            <div class="Science-right-col">
+            
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+    
+
+    <div class="text-bubble-arrow"></div> <!--This guys floats around with absolute position relative to the HTML-->
+    <script src="script.js"></script>
+</body>
+
+</html>
