@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎉Eric J.Y. Yang🎉</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
@@ -101,43 +102,70 @@
                 <h4>Building a pipeline to identify and engineer constitutive and repressible promoters</h4>
             </div>
             <div class="manuscript manuscript-transition" id = "manuscript2">
-                <h4>A comparative analysis of stably expressed genes across diverse angiosperms exposes flexibility in underlying promoter architecture</h4>
+                <h4>A comparative analysis of stably expressed genes across diverse angiosperms exposes </br>flexibility in underlying promoter architecture</h4>
             </div>
         </div>
 
-        <div class="Observable" id = "Observable">
-            <div class="Observable-left">
-                <iframe width="100%" height="100%" frameborder="0"
-                src="https://observablehq.com/embed/15a480dacc56a549@335?cells=Title%2CDescription"></iframe>
-            </div>
-    
-            <div class="Observable-right">
-                <div class="Observable-right-padding"></div>
-                <iframe width="100%" height="93%" frameborder="0" src="https://observablehq.com/embed/15a480dacc56a549@343?cells=viewof+Coretypes%2CFigure"></iframe>
-            </div>
-        </div> 
+        <div class="cube-scene">
+            <div class="cube" id = "cube">
+                <div class="cube__face--bottom">
+                    <div class="Observable" id = "Observable">
+                        <div class="Observable-left">
+                            <iframe width="100%" height="100%" frameborder="0"
+                            src="https://observablehq.com/embed/15a480dacc56a549@335?cells=Title%2CDescription"></iframe>
+                        </div>
+                
+                        <div class="Observable-right">
+                            <div class="Observable-right-padding"></div>
+                            <iframe width="100%" height="93%" frameborder="0" 
+                            src="https://observablehq.com/embed/15a480dacc56a549@343?cells=viewof+Coretypes%2CFigure"></iframe>
+                            <button class="fas-button">
+                                <i class="fas fa-circle-xmark" 
+                                onmouseover="this.className = 'fas fa-circle-xmark fa-shake'" 
+                                onmouseleave="this.className = 'fas fa-circle-xmark'"
+                                onmousedown="FlipCube('show-front')"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cube__face--front">
+                    <div class="pipeline-paper" id="pipeline-paper">
+                        <div class="pipeline-left-col">
+                            <h3>Background</h3>
+                            <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
+                            <h3>Problem</h3>
+                            <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
+                            <h3>Our approach</h3>
+                            <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
+                            <p onclick="FlipCube('show-bottom')"> (Explore an interactive figure I made!) </p>
+                            <h3>Results</h3>
+                            <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
+                        </div>
+                        <div class="pipeline-right-col">
+                        
+                        </div>
+                    </div>
+                </div>
 
-        <div class="manuscript-info" id="manuscript-info">
-            <div class="Science-left-col">
-                <h3>Background</h3>
-                <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
-                <h3>Problem</h3>
-                <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
-                <h3>Our approach</h3>
-                <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
-                <p onclick="toggle_observable()"> (Explore an interactive figure I made!) </p>
-                <h3>Results</h3>
-                <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
-            </div>
-            <div class="Science-right-col">
-            
+               
+
+                <div class="coretype-paper cube__face--right" id="coretype-paper"> <h1>RIGHT</h1></div>
+                <div class="top-face cube__face--top"> <h1>TOP</h1></div>
+                <div class="back-face cube__face--back"> <h1>BACK</h1></div>
+                <div class="left-face cube__face--left"><h1>LEFT</h1></div>
+
             </div>
         </div>
-
-
-
+        
     </section>
 
+    <section id="Others">
+        <div class="Others-wrapper">
+            
+        </div>
+
+    </section>
 
 
     

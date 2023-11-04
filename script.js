@@ -57,9 +57,10 @@ let rotation_state = 0
 let animationFinished = true
 
 function rotate(){
-    mn_icon.classList.add("icon-rotate-click")
-
     if (animationFinished == true & rotation_state == 0) {
+        mn_icon.classList.add("icon-rotate-click")
+        FlipCube('show-right')
+
         animationFinished = false
         mn1.style.transform = "rotate(-90deg) translateX(-70px) translateY(150px) rotate(90deg)"
         mn1.style.zIndex = 1
@@ -74,17 +75,20 @@ function rotate(){
         mn1.style.fontWeight = "lighter"
         mn1.style.color = "#b4b4b387"
 
-        rotation_state = 1
-
         setTimeout(function(){
             mn_icon.classList.remove("icon-rotate-click")
         },1000);
 
         setTimeout(function(){
-            animationFinished = true},1500);
+            animationFinished = true
+            rotation_state = 1
+        },1500);
     }
 
     else if (animationFinished == true & rotation_state == 1) {
+        mn_icon.classList.add("icon-rotate-click")
+        FlipCube('show-front')
+
         animationFinished = false
         mn1.style.transform = "rotate(-180deg) translateX(0px) translateY(0px) rotate(180deg)"
         mn1.style.zIndex = 2
@@ -99,7 +103,6 @@ function rotate(){
         mn2.style.fontWeight = "lighter"
         mn2.style.color = "#b4b4b387"
 
-        rotation_state = 0
         setTimeout(function(){
             mn2.classList.remove("manuscript-transition")
             mn1.style.transform = ""; 
@@ -109,6 +112,7 @@ function rotate(){
         setTimeout(function(){
             animationFinished = true
             mn2.classList.add("manuscript-transition")
+            rotation_state = 0
         },1500);
     }
 }
@@ -117,26 +121,15 @@ mn1.onclick = rotate
 mn2.onclick = rotate
 mn_icon.onclick = rotate
 
-// Toggling Observable
-observable_visible = false
-observable = document.getElementById("Observable")
+let cube = document.querySelector('.cube')
+currentClass = ""
+// Cube rotation
+function FlipCube(side){
+    if (currentClass){
+        cube.classList.remove(currentClass);
+    }
+    cube.classList.add(side)
+    currentClass = side
+}
 
-
-
-
-//----This pulls the face OUT--- but I wanted to try rotating it like a cube!
-// observable.style.height = "0"
-// observable.style.border = "0px"
-// function toggle_observable(){
-//     if (observable_visible == false){
-//         // observable.style.height = "780px"
-//         // observable.style.border = "5px solid var(--highlight-color)"
-//         observable.style.transform = "rotateX(90deg) translateZ(390px)"
-//         observable_visible = true
-//     }
-//     else if (observable_visible == true){
-//         observable.style.height = "0"
-//         observable.style.border = "0px"
-//         observable_visible = false
-//     }
-// }
+let x_button = document.querySelector(".fa-circle-xmark")
