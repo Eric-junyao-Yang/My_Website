@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 172 21" style="enable-background:new 0 0 172 21;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#EFE342;}
+	.st1{fill:none;stroke:#231F20;stroke-width:0.4875;stroke-miterlimit:10;}
+	.st2{fill:#231F20;stroke:#231F20;stroke-width:0.4875;stroke-miterlimit:10;}
+	.st3{fill:#231F20;}
+	.st4{font-family:'Helvetica';}
+	.st5{font-size:6.8253px;}
+	.st6{fill:#C6C5C5;}
+	.st7{fill:#F6921E;}
+	.st8{fill:#CC79A6;}
+	.st9{font-size:7.6434px;}
+	.st10{font-size:6.83px;}
+</style>
+<g>
+	<polygon class="st0" points="171.51,13.64 164.05,6.89 138.79,6.89 138.79,20.4 164.05,20.4 	"/>
+</g>
+<line class="st1" x1="124.87" y1="13.64" x2="138.79" y2="13.64"/>
+<polyline class="st1" points="143.25,3.53 131.83,3.53 131.83,13.64 "/>
+<polygon class="st2" points="146.67,2.92 143.25,4.89 143.25,0.94 "/>
+<text transform="matrix(1 0 0 1 146.675 15.9414)" class="st3 st4 st5">YFP</text>
+<rect x="0.41" y="7.45" class="st6" width="124.46" height="13.63"/>
+<rect x="38.33" y="7.72" class="st7" width="15.98" height="13.09"/>
+<rect x="89.26" y="7.72" class="st8" width="15.98" height="13.09"/>
+<text transform="matrix(1 0 0 1 43.427 17.2675)" class="st3 st4 st9">X</text>
+<text transform="matrix(1 0 0 1 94.3586 17.2675)" class="st3 st4 st9">Y</text>
+<text transform="matrix(1 0 0 1 4.5276 15.9414)" class="st3 st4 st10">Promoter</text>
+</svg>

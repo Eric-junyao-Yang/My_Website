@@ -143,7 +143,54 @@
                             <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
                         </div>
                         <div class="pipeline-right-col">
-                        
+                            <table>
+                                <tr>
+                                    <td class="table-heading" colspan="4"><h3>NOR Logic Gate</h3></td>
+                                </tr>
+                                <tr>
+                                    <th id="table-null"></th>
+                                    <th>Input1</th>
+                                    <th>Input2</th>
+                                    <th>Output</th>
+                                </tr>
+                                <tr id="table-r1" onclick="changeLogic('radio-1')">
+                                        <td id="radio-btn"><input type="radio" name="logic" value="radio-1" onclick="changeLogic(value)" class="radio" id="radio-1"><span class="custom-radio"></span></td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                </tr>
+                                <tr id="table-r2" onclick="changeLogic('radio-2')">
+                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-2" onclick="changeLogic(value)" class="radio" id="radio-2"><span class="custom-radio"></span></td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr id="table-r3" onclick="changeLogic('radio-3')">
+                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-3" onclick="changeLogic(value)" class="radio" id="radio-3"><span class="custom-radio"></span></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr id="table-r4" onclick="changeLogic('radio-4')">
+                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-4" onclick="changeLogic(value)" class="radio" id="radio-4"><span class="custom-radio"></span></td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+
+                            <div class="wetlab_container">
+                                <div class="highlightbox" id="highlightbox"></div>
+                                <img src="images/NOR_gate/ExperimentalData.svg" id="wetlabdata">
+                            </div>
+                            <div class="cartoon">
+                                <img src="images/NOR_gate/Promoter.svg" id="promoter">
+                                <img src="images/NOR_gate/RepX.svg" id="repx">
+                                <img src="images/NOR_gate/RepY.svg" id="repy">
+                                <img src="images/NOR_gate/RepLineLong.svg" id="replinelong">
+                                <img src="images/NOR_gate/RepLineShort.svg" id="replineshort">
+
+                            </div>
                         </div>
                     </div>
                 </div>

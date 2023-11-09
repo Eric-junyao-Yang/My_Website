@@ -133,3 +133,68 @@ function FlipCube(side){
 }
 
 let x_button = document.querySelector(".fa-circle-xmark")
+
+// Check Logic status and animate
+const highlight_box = document.getElementById("highlightbox")
+const repx = document.getElementById("repx")
+const repy = document.getElementById("repy")
+const replinelong = document.getElementById("replinelong")
+const replineshort = document.getElementById("replineshort")
+changeLogic("radio-1")
+
+function changeLogic(value){
+    const logic_row1 = document.getElementById("table-r1")
+    const logic_row2 = document.getElementById("table-r2")
+    const logic_row3 = document.getElementById("table-r3")
+    const logic_row4 = document.getElementById("table-r4")
+    radiobtn = document.getElementById(value)
+    radiobtn.checked = true
+    if (value == "radio-1"){
+        logic_row1.classList.add('logic_ON')
+        logic_row2.classList.remove("logic_OFF")
+        logic_row3.classList.remove("logic_OFF")
+        logic_row4.classList.remove("logic_OFF")
+        highlight_box.style.border = "5px dashed rgba(0, 128, 0, 0.43)"
+        highlight_box.style.left = "58px"
+        repx.style.top = "30%"
+        repy.style.top = "30%"
+        replinelong.style.visibility = "hidden"
+        replineshort.style.visibility = "hidden"
+    }
+    if (value == "radio-2"){
+        logic_row1.classList.remove("logic_ON")
+        logic_row2.classList.add("logic_OFF")
+        logic_row3.classList.remove("logic_OFF")
+        logic_row4.classList.remove("logic_OFF")
+        highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
+        highlight_box.style.left = "97px"
+        repx.style.top = "50%"
+        repy.style.top = "30%"
+        replinelong.style.visibility = "visible"
+        replineshort.style.visibility = "hidden"
+    }
+    if (value == "radio-3"){
+        logic_row1.classList.remove("logic_ON")
+        logic_row2.classList.remove("logic_OFF")
+        logic_row3.classList.add("logic_OFF")
+        logic_row4.classList.remove("logic_OFF")
+        highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
+        highlight_box.style.left = "138px"
+        repx.style.top = "30%"
+        repy.style.top = "50%"
+        replinelong.style.visibility = "hidden"
+        replineshort.style.visibility = "visible"
+    }
+    if (value == "radio-4"){
+        logic_row1.classList.remove("logic_ON")
+        logic_row2.classList.remove("logic_OFF")
+        logic_row3.classList.remove("logic_OFF")
+        logic_row4.classList.add("logic_OFF")
+        highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
+        highlight_box.style.left = "178px"
+        repx.style.top = "50%"
+        repy.style.top = "50%"
+        replinelong.style.visibility = "hidden"
+        replineshort.style.visibility = "visible"
+    }
+}

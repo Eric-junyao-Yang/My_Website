@@ -277,6 +277,8 @@ nav ul li a{
     transition: 1s;
 }
 
+/* Cube */
+
 .cube-scene{
     --unit-length: 90vw ;
     position: relative;
@@ -352,6 +354,8 @@ nav ul li a{
     margin-top: 300px;
 }
 
+/* Observable */
+
 .Observable{
     display:flex;
     height: 780px;
@@ -384,17 +388,162 @@ nav ul li a{
     right:20px;
 }
 
+/* Pipeline-paper */
+
 .pipeline-paper{
     display:flex;
-    margin-top: 0px;
+    /* margin-top: 0px; */
 }
 
 .pipeline-left-col{
-    flex-basis: 50%;
+    flex-basis: 45%;
 }
 
 .pipeline-right-col{
+    display:flex;
+    margin-left: 50px;
+    /* flex:1; */
     background-color: white;
-    border: 5px solid var(--highlight-color);
-    flex-basis: 50%;
+    border: 5px solid black;
+    min-width: 870px;
+    max-height: 542px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Pipeline-paper Table*/
+table td, th{
+    padding: 5px;
+}
+
+.pipeline-right-col table{
+    table-layout: fixed;
+    flex-basis: 20%;
+    /* margin: 25% 1%; */
+    border-collapse: collapse;
+    border: 3px solid var(--primary-color);
+    text-align: center;
+}
+
+.pipeline-right-col td, .pipeline-right-col th{
+    border: 1px solid black
+}
+
+.pipeline-right-col tr:first-child{
+    border-bottom: 3px solid black;
+}
+
+#radio-btn, #table-null{
+    background-color: white;
+}
+
+.pipeline-right-col td:not(.table-heading):nth-child(2), .pipeline-right-col td:not(.table-heading):nth-child(3), .pipeline-right-col th:nth-child(2), .pipeline-right-col th:nth-child(3){
+    background-color: rgb(165, 205, 255);
+}
+
+.pipeline-right-col td:not(.table-heading):last-child, .pipeline-right-col th:last-child{
+    background-color: rgb(131, 213, 153);
+}
+
+.logic_ON{
+    border: 3px solid rgba(0, 128, 0, 0.55);
+}
+
+.logic_OFF{
+    border: 3px solid rgba(255, 0, 0, 0.55);
+}
+
+.radio{
+    appearance: none;
+    margin: 0;
+    position:relative;
+    height:20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--action-color);
+    display: block;
+}
+
+.radio::after{
+    content:"";
+    height: 9px;
+    width: 9px;
+    background: var(--action-color);
+    display: block;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: 100ms;
+}
+
+.radio:checked::after{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#table-r1, #table-r2, #table-r3, #table-r4{
+    cursor: pointer;
+}
+
+.wetlab_container{
+    display:flex;
+    position:relative;
+}
+
+.highlightbox{
+    position:absolute;
+    border: 5px dashed rgba(255, 0, 0, 0.43);
+    height: 480px;
+    width: 49px;
+    left: 130px;
+    transition: 300ms;
+}
+
+#wetlabdata{
+    height: 480px;
+}
+
+.pipeline-right-col .cartoon{
+    flex: 0.9;
+    width: 100px;
+    position: relative;
+    height: 480px;
+}
+
+#promoter{
+    position:absolute;
+    top: 65%;
+    width: 360px;
+}
+
+#repx{
+    position:absolute;
+    width: 205px;
+    top: 51%;
+    transition: 300ms;
+}
+
+#repy{
+    position:absolute;
+    width: 205px;
+    top: 51%;
+    left: 106px;
+    transition: 300ms;
+}
+
+#replinelong{
+    position: absolute;
+    width: 116px;
+    top: 55%;
+    left: 215px;
+    transition-delay: 100ms;
+}
+
+#replineshort{
+    position: absolute;
+    width: 20px;
+    top: 55%;
+    left: 312px;
+    transition-delay: 100ms;
 }
