@@ -28,7 +28,35 @@
 
     <!---About Me-->
     <section id = "AboutMe">
-        <div class = "about-left-col">
+        <div class="about-left-col">
+            <div class="image-container">
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/1_Original.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/2_VanGogh.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/3_WaterColor.png">
+                </div>
+                <div class="my_image_slice ">
+                    <img class="my_image" src="images/MyPics/4_Monet.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image image_selected" src="images/MyPics/5_Pastel.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/6_Ink.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/7_JacksonPollock.png">
+                </div>
+                <div class="my_image_slice">
+                    <img class="my_image" src="images/MyPics/8_Cubist2.png">
+                </div>
+            </div>
+        </div>
+        <!-- <div class = "about-left-col">
             <div class = "image-container">
                 <div class = "current-image">
                     <img src="images/MyPics/1_Original.png" id="cur-img">
@@ -52,7 +80,7 @@
                 </div>
                 
             </div>
-        </div>
+        </div> -->
             
         <div class = "about-right-col">
             <div class="about-right-text">
@@ -129,18 +157,26 @@
                     </div>
                 </div>
                 
-                <div class="cube__face--front">
+                <div class="cube__face--right">
                     <div class="pipeline-paper" id="pipeline-paper">
                         <div class="pipeline-left-col">
-                            <h3>Background</h3>
-                            <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
-                            <h3>Problem</h3>
-                            <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
-                            <h3>Our approach</h3>
-                            <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
+                            <div class="background">
+                                <h3>Background</h3>
+                                <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
+                            </div>
+                            <div class="problem">
+                                <h3>Problem</h3>
+                                <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
+                            </div>
+                            <div class="our-approach">
+                                <h3>Our approach</h3>
+                                <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
                             <p onclick="FlipCube('show-bottom')"> (Explore an interactive figure I made!) </p>
+                            </div>
+                            <div class="results">
                             <h3>Results</h3>
                             <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
+                            </div>
                         </div>
                         <div class="pipeline-right-col">
                             <table>
@@ -185,8 +221,10 @@
                             </div>
                             <div class="cartoon">
                                 <img src="images/NOR_gate/Promoter.svg" id="promoter">
-                                <img src="images/NOR_gate/RepX.svg" id="repx">
-                                <img src="images/NOR_gate/RepY.svg" id="repy">
+                                <img src="images/NOR_gate/Rep.svg" id = "rep1">
+                                <img src="images/NOR_gate/Rep.svg" id = "rep2">
+                                <img src="images/NOR_gate/gRNA_orange.svg" id="gRNA_orange">
+                                <img src="images/NOR_gate/gRNA_pink.svg" id="gRNA_pink">
                                 <img src="images/NOR_gate/RepLineLong.svg" id="replinelong">
                                 <img src="images/NOR_gate/RepLineShort.svg" id="replineshort">
 
@@ -197,10 +235,46 @@
 
                
 
-                <div class="coretype-paper cube__face--right" id="coretype-paper"> <h1>RIGHT</h1></div>
-                <div class="top-face cube__face--top"> <h1>TOP</h1></div>
-                <div class="back-face cube__face--back"> <h1>BACK</h1></div>
-                <div class="left-face cube__face--left"><h1>LEFT</h1></div>
+                <div class="cube__face--front">
+                    <div class="coretype-paper">
+                        <div class="coretype-left">
+                            <div class="background">
+                                <h3>Background</h3>
+                                <p>Background about things and things of that nature</p>
+                            </div>
+                            <div class="question">
+                                <h3>Question</h3>
+                                <p>But how does things lead to things of that nature?</p>
+                            </div>
+                            <div class="approach">
+                                <h3>Approach</h3>
+                                <p>We did things to things of that nature</p>
+                            </div>
+                            <div class="findings">
+                                <h3>Findings</h3>
+                                <p>We discovered things of that nature</p>
+                            </div>
+
+                        </div>
+
+                        <div class="coretype-right">
+                            <video controls autoplay>
+                                <source src="/images/FinalAnimation.mp4">
+                                Here is a animated figure that's really impressive
+                            </video>
+                        </div>
+                    </div>
+                </div> 
+                </div>
+                <div class="top-face cube__face--top">
+                    <!-- <h1>TOP</h1> -->
+                </div>
+                <div class="back-face cube__face--back">
+                    <!-- <h1>BACK</h1> -->
+                </div>
+                <div class="left-face cube__face--left">
+                    <!-- <h1>LEFT</h1> -->
+                </div>
 
             </div>
         </div>

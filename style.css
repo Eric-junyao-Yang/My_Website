@@ -81,7 +81,7 @@ nav ul li a{
     flex-basis: 40%;
     padding:10px;
     display:flex;
-    justify-content:end;
+    /* justify-content:end; */
 }
 
 .about-right-col{
@@ -172,27 +172,58 @@ nav ul li a{
 
 
 /* ---Image Container--- */
+
 .image-container{
-    width: min(100%, 500px);
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 512px;
+    max-height: 512px;
 }
 
-.current-image img{
+.my_image_slice{
+    position: relative;
+    flex-basis: 100%;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    border-left: 3px solid #e55604;
+}
+
+.my_image{
+    display:block;
+    position: absolute;
     object-fit: cover;
 }
 
-.previews{
-    display:flex;
-    justify-content: space-between;
-    text-align: center;
+.my_image_slice:nth-child(2) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (1)));
+}
+.my_image_slice:nth-child(3) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (2)));
 }
 
-.previews img{
-    width:10%;
-    height:10%;
-    object-fit: cover;
-    cursor:pointer;
+.my_image_slice:nth-child(4) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (3)));
+}
+.my_image_slice:nth-child(5) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (4)));
+}
+.my_image_slice:nth-child(6) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (5)));
+}
+.my_image_slice:nth-child(7) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (6)));
+}
+.my_image_slice:nth-child(8) .my_image {
+    transform: translateX(
+        calc((-100%/8) * (7)));
 }
 
 /* ---Science--- */
@@ -282,7 +313,7 @@ nav ul li a{
 .cube-scene{
     --unit-length: 90vw ;
     position: relative;
-    border: 1px solid #CCC;
+    /* border: 1px solid #CCC; */
     margin-top: 130px;
     perspective: calc(var(--unit-length)*2);
     width: var(--unit-length);
@@ -397,6 +428,9 @@ nav ul li a{
 
 .pipeline-left-col{
     flex-basis: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pipeline-right-col{
@@ -446,11 +480,41 @@ table td, th{
 }
 
 .logic_ON{
-    border: 3px solid rgba(0, 128, 0, 0.55);
+    outline: 3px solid rgba(0, 128, 0, 0.85);
+    animation-name: table_blink_green;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
 }
 
 .logic_OFF{
-    border: 3px solid rgba(255, 0, 0, 0.55);
+    outline: 3px solid rgba(255, 0, 0, 0.85);
+    animation-name: table_blink_red;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes table_blink_green{
+    0%{
+        outline: 3px solid rgba(0, 128, 0, 0.85);
+    }
+    50%{
+        outline: 3px solid rgba(0, 128, 0, 0.00)
+    }
+    100%{
+        outline: 3px solid rgba(0, 128, 0, 0.85)
+    }
+}
+
+@keyframes table_blink_red{
+    0%{
+        outline: 3px solid rgba(255, 0, 0, 0.85);
+    }
+    50%{
+        outline: 3px solid rgba(255, 0, 0, 0.00)
+    }
+    100%{
+        outline: 3px solid rgba(255, 0, 0, 0.85)
+    }
 }
 
 .radio{
@@ -462,6 +526,7 @@ table td, th{
     border-radius: 50%;
     border: 3px solid var(--action-color);
     display: block;
+    cursor: pointer;
 }
 
 .radio::after{
@@ -476,6 +541,7 @@ table td, th{
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
     transition: 100ms;
+    cursor: pointer;
 }
 
 .radio:checked::after{
@@ -517,18 +583,37 @@ table td, th{
     width: 360px;
 }
 
-#repx{
-    position:absolute;
-    width: 205px;
-    top: 51%;
+#rep1{
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: 103px;
+    transition: 300ms;
+    transition-delay: 300ms;
+}
+
+#rep2{
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: 210px;
+    transition: 300ms;
+    transition-delay: 300ms;
+}
+
+#gRNA_orange{
+    position: absolute;
+    width: 100px;
+    top: 57%;
+    left: 79px;
     transition: 300ms;
 }
 
-#repy{
-    position:absolute;
-    width: 205px;
-    top: 51%;
-    left: 106px;
+#gRNA_pink{
+    position: absolute;
+    width: 100px;
+    top: 57%;
+    left: 185px;
     transition: 300ms;
 }
 
@@ -537,7 +622,7 @@ table td, th{
     width: 116px;
     top: 55%;
     left: 215px;
-    transition-delay: 100ms;
+    transition-delay: 500ms;
 }
 
 #replineshort{
@@ -545,5 +630,30 @@ table td, th{
     width: 20px;
     top: 55%;
     left: 312px;
-    transition-delay: 100ms;
+    transition-delay: 500ms;
+}
+
+/* Coretype paper */
+
+.coretype-paper{
+    display:flex;
+    /* margin-top: 0px; */
+}
+
+.coretype-left{
+    flex-basis: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.coretype-right{
+    display:flex;
+    margin-left: 50px;
+    background-color: white;
+    border: 5px solid black;
+    min-width: 870px;
+    max-height: 542px;
+    align-items: center;
+    justify-content: space-around;
 }

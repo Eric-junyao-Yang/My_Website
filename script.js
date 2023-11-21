@@ -17,6 +17,30 @@ menuBtn.onclick = function(){
 const change = src => document.getElementById('cur-img').src = src
 const resetimg = () => document.getElementById('cur-img').src = "images/MyPics/1_Original.png"
 
+let image_slices = document.querySelectorAll(".my_image_slice")
+
+function func_U(n){
+    return ((1/16) + (1/8)*n)
+}
+
+function norm_dist(x, w, n){
+    return (1/(w*(2*Math.PI)**0.5)) * Math.exp(-0.5*(((x-func_U(n))/w)**2))
+}
+
+let image_container = document.querySelector(".image-container")
+
+image_container.addEventListener("mousemove", event => {
+    const bondingbox = image_container.getBoundingClientRect();
+    perc_x = (event.clientX - bondingbox.left)/bondingbox.width; //This is global variable now
+
+    for (let n = 0; n < image_slices.length; n++){
+        image_slices[n].style.flexBasis = norm_dist(perc_x, 0.1, n) * 50 + "%"
+        let current_slice = image_slices[n].getBoundingClientRect()
+        let to_shift = current_slice.left - bondingbox.left
+        image_slices[n].querySelector('.my_image').style.transform = "translateX(" + -to_shift + "px)"
+    }
+})
+
 // Text-bubble
 let text_bubble_arrow = document.getElementsByClassName("text-bubble-arrow")[0]
 let bubble_text = document.getElementById("bubble-text")
@@ -136,8 +160,10 @@ let x_button = document.querySelector(".fa-circle-xmark")
 
 // Check Logic status and animate
 const highlight_box = document.getElementById("highlightbox")
-const repx = document.getElementById("repx")
-const repy = document.getElementById("repy")
+const rep1 = document.getElementById("rep1")
+const rep2 = document.getElementById("rep2")
+const gRNA_orange = document.getElementById("gRNA_orange")
+const gRNA_pink = document.getElementById("gRNA_pink")
 const replinelong = document.getElementById("replinelong")
 const replineshort = document.getElementById("replineshort")
 changeLogic("radio-1")
@@ -156,8 +182,10 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(0, 128, 0, 0.43)"
         highlight_box.style.left = "58px"
-        repx.style.top = "30%"
-        repy.style.top = "30%"
+        rep1.style.top = "30%"
+        rep2.style.top = "30%"
+        gRNA_orange.style.opacity = "0"
+        gRNA_pink.style.opacity = "0"
         replinelong.style.visibility = "hidden"
         replineshort.style.visibility = "hidden"
     }
@@ -168,8 +196,10 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "97px"
-        repx.style.top = "50%"
-        repy.style.top = "30%"
+        rep1.style.top = "50%"
+        rep2.style.top = "30%"
+        gRNA_orange.style.opacity = "1"
+        gRNA_pink.style.opacity = "0"
         replinelong.style.visibility = "visible"
         replineshort.style.visibility = "hidden"
     }
@@ -180,8 +210,10 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "138px"
-        repx.style.top = "30%"
-        repy.style.top = "50%"
+        rep1.style.top = "30%"
+        rep2.style.top = "50%"
+        gRNA_orange.style.opacity = "0"
+        gRNA_pink.style.opacity = "1"
         replinelong.style.visibility = "hidden"
         replineshort.style.visibility = "visible"
     }
@@ -192,8 +224,10 @@ function changeLogic(value){
         logic_row4.classList.add("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "178px"
-        repx.style.top = "50%"
-        repy.style.top = "50%"
+        rep1.style.top = "50%"
+        rep2.style.top = "50%"
+        gRNA_orange.style.opacity = "1"
+        gRNA_pink.style.opacity = "1"
         replinelong.style.visibility = "hidden"
         replineshort.style.visibility = "visible"
     }
