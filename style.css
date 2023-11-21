@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -232,6 +232,7 @@ nav ul li a{
     padding: 100px;
     display:flex;
     flex-wrap: wrap;
+    isolation: isolate;
 }
 
 .manuscripts-container{
@@ -656,4 +657,78 @@ table td, th{
     max-height: 542px;
     align-items: center;
     justify-content: space-around;
+}
+
+/* Read More Button (Shared) */
+
+.Read-more{
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.Read-more-btn{
+    overflow: hidden;
+    position: relative;
+    border: none;
+    color: rgb(125, 125, 125);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    background: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 2px 18px;
+} 
+.Read-more-btn:hover{
+    color: var(--action-color);
+}
+
+.Read-more-btn::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border: 3px solid rgb(125, 125, 125);
+    transition: opacity 0.3s, border 0.3s;
+}
+
+.Read-more-btn:hover::before{
+    opacity: 0;
+}
+
+.Read-more-btn::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--highlight-color);
+    border-color: transparent;
+    border-radius: 50%;
+    transform: translate(-17% ,calc(-50% + 22px)) scale(0.1);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+
+
+.Read-more-btn:hover::after{
+    opacity: 1;
+    transform: translate(-17% ,calc(-50% + 22px)) scale(1);
+}
+
+.Read-more-btn:active{
+    transform: translateY(-2px)
+}
+
+
+/* Section Others */
+
+#Others{
+    /* padding:100px; */
+    /* display:flex;
+    flex-wrap: wrap; */
 }

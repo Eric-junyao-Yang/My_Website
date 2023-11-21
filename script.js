@@ -23,7 +23,7 @@ function func_U(n){
     return ((1/16) + (1/8)*n)
 }
 
-function norm_dist(x, w, n){
+function norm_dist(x, w, n){ //This is a normal distribution function I'm using to spread the panels apart, tweak w for optimal spread.
     return (1/(w*(2*Math.PI)**0.5)) * Math.exp(-0.5*(((x-func_U(n))/w)**2))
 }
 
@@ -232,3 +232,14 @@ function changeLogic(value){
         replineshort.style.visibility = "visible"
     }
 }
+
+// Adjust Science section height
+let cube_face = document.querySelectorAll(".cube__face")
+let cube_bottom_list = []
+for (let n = 0; n < cube_face.length; n++){
+    if (cube_face[n].lastElementChild != null){
+    cube_bottom_list[n] = cube_face[n].lastElementChild.getBoundingClientRect().y + cube_face[n].lastElementChild.getBoundingClientRect().height}
+}
+document.getElementById("Science").style.height = Math.max(...cube_bottom_list) + "px"
+
+// document.getElementById("Science").style.height = 
