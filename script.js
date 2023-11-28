@@ -233,13 +233,3 @@ function changeLogic(value){
     }
 }
 
-// Adjust Science section height
-let cube_face = document.querySelectorAll(".cube__face")
-let cube_bottom_list = []
-for (let n = 0; n < cube_face.length; n++){
-    if (cube_face[n].lastElementChild != null){
-    cube_bottom_list[n] = cube_face[n].lastElementChild.getBoundingClientRect().y + cube_face[n].lastElementChild.getBoundingClientRect().height}
-}
-document.getElementById("Science").style.height = Math.max(...cube_bottom_list) + "px"
-
-// document.getElementById("Science").style.height = 

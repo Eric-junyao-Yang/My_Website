@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -233,6 +233,7 @@ nav ul li a{
     display:flex;
     flex-wrap: wrap;
     isolation: isolate;
+    height: 1080px;
 }
 
 .manuscripts-container{
@@ -319,6 +320,7 @@ nav ul li a{
     perspective: calc(var(--unit-length)*2);
     width: var(--unit-length);
     height: var(--unit-length);
+    z-index: 1;
 }
 
 .cube{
@@ -327,7 +329,7 @@ nav ul li a{
     height: var(--unit-length);
     transform-style: preserve-3d;
     transition: transform 1s; 
-    transform: translateZ(calc(var(--unit-length)/-2));
+    transform: translateZ(calc((var(--unit-length)/-2)));
 }
 
 .cube__face--front{
@@ -728,7 +730,45 @@ table td, th{
 /* Section Others */
 
 #Others{
-    /* padding:100px; */
-    /* display:flex;
-    flex-wrap: wrap; */
+    padding:100px;
+    flex-wrap: wrap;
+    transform: translateZ(+0px);
+}
+
+.Others-wrapper{
+    display:flex;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.Others-child{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.Others-child-discript{
+    padding: 5px 30px;
+    text-align: left;
+}
+
+.Others-child-discript p{
+    font-size: 20px;
+}
+
+.Others-child-content{
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.Coding-content-container{
+    /* outline: solid black 5px; */
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
