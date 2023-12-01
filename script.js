@@ -14,9 +14,6 @@ menuBtn.onclick = function(){
 }
 
 // Photo viewer
-const change = src => document.getElementById('cur-img').src = src
-const resetimg = () => document.getElementById('cur-img').src = "images/MyPics/1_Original.png"
-
 let image_slices = document.querySelectorAll(".my_image_slice")
 
 function func_U(n){
@@ -37,10 +34,9 @@ image_container.addEventListener("mousemove", event => {
         image_slices[n].style.flexBasis = norm_dist(perc_x, 0.1, n) * 50 + "%"
         let current_slice = image_slices[n].getBoundingClientRect()
         let to_shift = current_slice.left - bondingbox.left
-        image_slices[n].querySelector('.my_image').style.transform = "translateX(" + -to_shift + "px)"
+        image_slices[n].querySelector('.my_image').style.transform = "translateX(" + -(to_shift - 8) + "px)"
     }
 })
-
 // Text-bubble
 let text_bubble_arrow = document.getElementsByClassName("text-bubble-arrow")[0]
 let bubble_text = document.getElementById("bubble-text")
