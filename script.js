@@ -162,6 +162,7 @@ const gRNA_orange = document.getElementById("gRNA_orange")
 const gRNA_pink = document.getElementById("gRNA_pink")
 const replinelong = document.getElementById("replinelong")
 const replineshort = document.getElementById("replineshort")
+
 changeLogic("radio-1")
 
 function changeLogic(value){
@@ -178,8 +179,8 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(0, 128, 0, 0.43)"
         highlight_box.style.left = "58px"
-        rep1.style.top = "30%"
-        rep2.style.top = "30%"
+        rep1.style.top = "0%"
+        rep2.style.top = "0%"
         gRNA_orange.style.opacity = "0"
         gRNA_pink.style.opacity = "0"
         replinelong.style.visibility = "hidden"
@@ -192,8 +193,8 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "97px"
-        rep1.style.top = "50%"
-        rep2.style.top = "30%"
+        rep1.style.top = "30%"
+        rep2.style.top = "0%"
         gRNA_orange.style.opacity = "1"
         gRNA_pink.style.opacity = "0"
         replinelong.style.visibility = "visible"
@@ -206,8 +207,8 @@ function changeLogic(value){
         logic_row4.classList.remove("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "138px"
-        rep1.style.top = "30%"
-        rep2.style.top = "50%"
+        rep1.style.top = "0%"
+        rep2.style.top = "30%"
         gRNA_orange.style.opacity = "0"
         gRNA_pink.style.opacity = "1"
         replinelong.style.visibility = "hidden"
@@ -220,8 +221,8 @@ function changeLogic(value){
         logic_row4.classList.add("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
         highlight_box.style.left = "178px"
-        rep1.style.top = "50%"
-        rep2.style.top = "50%"
+        rep1.style.top = "30%"
+        rep2.style.top = "30%"
         gRNA_orange.style.opacity = "1"
         gRNA_pink.style.opacity = "1"
         replinelong.style.visibility = "hidden"

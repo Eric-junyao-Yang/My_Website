@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@400;800&family=Noto+Serif:ital,wdth,wght@0,70,605;0,93,400;0,95.1,598;1,93,400&display=swap" rel="stylesheet">
 </head>
 
 
@@ -37,19 +34,14 @@
                     <span>Eric J.Y.</span>
                     <span>Yang</span>
                     <span>PhD</span>
+                    <span class="div-lines-1"></span>
+                    <span class="div-lines-2"></span> <br>
+                    <span class="div-lines-3"></span>
                 </div>
                 <div class="short-bio">
-                    <div class="div-lines">
-                        <span class="div-lines-1"></span>
-                        <span class="div-lines-2"></span>
-                        <span class="div-lines-3"></span>
-                    </div>
-                    
-                    <div class="about-main-p">
-                        <p>I have a Molecular Engineering PhD from the University of Washington with the Data Science Certificate.
-                            I specialized in synthetic biology with a thesis on engineering and understanding plant promoters.
-                        </p>
-                    </div>
+                    <p>I have a Molecular Engineering PhD from the University of Washington with a Data Science Certificate.
+                        I specialized in synthetic biology with a thesis on engineering and understanding plant promoters.
+                    </p>
                 </div>
             </div>
 
@@ -82,8 +74,14 @@
                 </div>
             </div>
         </div>
+        
+    </section>
 
-        <div class = "AboutMe-Bot">
+<!-- Floaty blurb -->
+
+    <div id="Science-interests">
+        <h1>Highlighted Scientific Interests</h1>
+        <div class = "Floaty-blurb">
             <div class="interests-container">
                     <div class="interests-list">
                         <p id = "SynBio" onmouseover="slide(this.id)">Synthetic <br> biology</p>
@@ -92,14 +90,14 @@
                         <p id = "DataVis" onmouseover="slide(this.id)">Data <br> Visualization</p>
                         <p id = "ML" onmouseover="slide(this.id)">Machine <br> Learning</p>
                     </div>
-                    
                     <div class="text-bubble">
                         <p id = bubble-text></p>
                     </div>
             </div>
         </div>
-        
-    </section>
+    </div>
+
+
 
 <!-- Science -->
     <section id="Science">
@@ -167,55 +165,58 @@
                             </div>
                         </div>
                         <div class="pipeline-right-col">
-                            <table>
-                                <tr>
-                                    <td class="table-heading" colspan="4"><h3>NOR Logic Gate</h3></td>
-                                </tr>
-                                <tr>
-                                    <th id="table-null"></th>
-                                    <th>Input1</th>
-                                    <th>Input2</th>
-                                    <th>Output</th>
-                                </tr>
-                                <tr id="table-r1" onclick="changeLogic('radio-1')">
-                                        <td id="radio-btn"><input type="radio" name="logic" value="radio-1" onclick="changeLogic(value)" class="radio" id="radio-1"><span class="custom-radio"></span></td>
-                                        <td>0</td>
+                            <div class="logic-table">
+                                <table>
+                                    <tr>
+                                        <td class="table-heading" colspan="4"><h3>NOR Logic Gate</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <th id="table-null"></th>
+                                        <th>Input1</th>
+                                        <th>Input2</th>
+                                        <th>Output</th>
+                                    </tr>
+                                    <tr id="table-r1" onclick="changeLogic('radio-1')">
+                                            <td id="radio-btn"><input type="radio" name="logic" value="radio-1" onclick="changeLogic(value)" class="radio" id="radio-1"><span class="custom-radio"></span></td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                    </tr>
+                                    <tr id="table-r2" onclick="changeLogic('radio-2')">
+                                        <td id="radio-btn"><input type="radio" name="logic" value="radio-2" onclick="changeLogic(value)" class="radio" id="radio-2"><span class="custom-radio"></span></td>
                                         <td>0</td>
                                         <td>1</td>
-                                </tr>
-                                <tr id="table-r2" onclick="changeLogic('radio-2')">
-                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-2" onclick="changeLogic(value)" class="radio" id="radio-2"><span class="custom-radio"></span></td>
-                                    <td>0</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr id="table-r3" onclick="changeLogic('radio-3')">
-                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-3" onclick="changeLogic(value)" class="radio" id="radio-3"><span class="custom-radio"></span></td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr id="table-r4" onclick="changeLogic('radio-4')">
-                                    <td id="radio-btn"><input type="radio" name="logic" value="radio-4" onclick="changeLogic(value)" class="radio" id="radio-4"><span class="custom-radio"></span></td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                </tr>
-                            </table>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr id="table-r3" onclick="changeLogic('radio-3')">
+                                        <td id="radio-btn"><input type="radio" name="logic" value="radio-3" onclick="changeLogic(value)" class="radio" id="radio-3"><span class="custom-radio"></span></td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr id="table-r4" onclick="changeLogic('radio-4')">
+                                        <td id="radio-btn"><input type="radio" name="logic" value="radio-4" onclick="changeLogic(value)" class="radio" id="radio-4"><span class="custom-radio"></span></td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                    </tr>
+                                </table>
+                            </div>
 
                             <div class="wetlab_container">
                                 <div class="highlightbox" id="highlightbox"></div>
                                 <img src="images/NOR_gate/ExperimentalData.svg" id="wetlabdata">
                             </div>
-                            <div class="cartoon">
-                                <img src="images/NOR_gate/Promoter.svg" id="promoter">
-                                <img src="images/NOR_gate/Rep.svg" id = "rep1">
-                                <img src="images/NOR_gate/Rep.svg" id = "rep2">
-                                <img src="images/NOR_gate/gRNA_orange.svg" id="gRNA_orange">
-                                <img src="images/NOR_gate/gRNA_pink.svg" id="gRNA_pink">
-                                <img src="images/NOR_gate/RepLineLong.svg" id="replinelong">
-                                <img src="images/NOR_gate/RepLineShort.svg" id="replineshort">
-
+                            <div class="cartoon-outter">
+                                <div class="cartoon">
+                                    <img src="images/NOR_gate/Promoter.svg" id="promoter">
+                                    <img src="images/NOR_gate/Rep.svg" id = "rep1">
+                                    <img src="images/NOR_gate/Rep.svg" id = "rep2">
+                                    <img src="images/NOR_gate/gRNA_orange.svg" id="gRNA_orange">
+                                    <img src="images/NOR_gate/gRNA_pink.svg" id="gRNA_pink">
+                                    <img src="images/NOR_gate/RepLineLong.svg" id="replinelong">
+                                    <img src="images/NOR_gate/RepLineShort.svg" id="replineshort">
+                                </div>
                             </div>
                         </div>
                     </div>
