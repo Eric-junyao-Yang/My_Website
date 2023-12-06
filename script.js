@@ -72,6 +72,8 @@ window.onresize = function(){ //Kind of hacky code that makes window resizing no
 let mn1 = document.getElementById("manuscript1")
 let mn2 = document.getElementById("manuscript2")
 let mn_icon = document.getElementById("manuscript-icon")
+let logic_shadow = document.querySelector(".pipeline-right-col")
+let core_shadow = document.querySelector(".coretype-right video")
 
 let rotation_state = 0
 let animationFinished = true
@@ -80,6 +82,8 @@ function rotate(){
     if (animationFinished == true & rotation_state == 0) {
         mn_icon.classList.add("icon-rotate-click")
         FlipCube('show-right')
+        logic_shadow.classList.add("no_shadow")
+        core_shadow.classList.remove("no_shadow")
 
         animationFinished = false
         mn1.style.transform = "rotate(-90deg) translateX(-70px) translateY(100px) rotate(90deg)"
@@ -108,6 +112,8 @@ function rotate(){
     else if (animationFinished == true & rotation_state == 1) {
         mn_icon.classList.add("icon-rotate-click")
         FlipCube('show-front')
+        logic_shadow.classList.remove("no_shadow")
+        core_shadow.classList.add("no_shadow")
 
         animationFinished = false
         mn1.style.transform = "rotate(-180deg) translateX(0px) translateY(0px) rotate(180deg)"
@@ -220,7 +226,7 @@ function changeLogic(value){
         logic_row3.classList.remove("logic_OFF")
         logic_row4.classList.add("logic_OFF")
         highlight_box.style.border = "5px dashed rgba(255, 0, 0, 0.43)"
-        highlight_box.style.left = "178px"
+        highlight_box.style.left = "178px" 
         rep1.style.top = "30%"
         rep2.style.top = "30%"
         gRNA_orange.style.opacity = "1"
