@@ -29,7 +29,6 @@ let image_container = document.querySelector(".image-container")
 image_container.addEventListener("mousemove", event => {
     const bondingbox = image_container.getBoundingClientRect();
     perc_x = (event.clientX - bondingbox.left)/bondingbox.width; //This is global variable now
-
     for (let n = 0; n < image_slices.length; n++){
         image_slices[n].style.flexBasis = norm_dist(perc_x, 0.1, n) * 50 + "%"
         let current_slice = image_slices[n].getBoundingClientRect()
@@ -37,6 +36,7 @@ image_container.addEventListener("mousemove", event => {
         image_slices[n].querySelector('.my_image').style.transform = "translateX(" + -(to_shift - 8) + "px)"
     }
 })
+
 // Text-bubble
 let text_bubble_arrow = document.getElementsByClassName("text-bubble-arrow")[0]
 let bubble_text = document.getElementById("bubble-text")

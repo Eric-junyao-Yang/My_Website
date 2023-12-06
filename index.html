@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@400;800&family=Noto+Serif:ital,wdth,wght@0,70,605;0,93,400;0,95.1,598;1,93,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:opsz,wght@7..72,300..800&family=Noto+Sans:wdth,wght@70,600;90,700;97,700;100,400&display=swap" rel="stylesheet"> 
 </head>
 
 
@@ -34,9 +34,11 @@
                     <span>Eric J.Y.</span>
                     <span>Yang</span>
                     <span>PhD</span>
-                    <span class="div-lines-1"></span>
-                    <span class="div-lines-2"></span> <br>
-                    <span class="div-lines-3"></span>
+                    <div class="stylized-lines">                    
+                        <span class="div-lines-1"></span>
+                        <span class="div-lines-2"></span>
+                        <span class="div-lines-3"></span>
+                    </div>
                 </div>
                 <div class="short-bio">
                     <p>I have a Molecular Engineering PhD from the University of Washington with a Data Science Certificate.
@@ -51,16 +53,16 @@
                         <img class="my_image" src="images/MyPics/1_Original.png">
                     </div>
                     <div class="my_image_slice">
-                        <img class="my_image" src="images/MyPics/2_VanGogh.png">
+                        <img class="my_image" src="images/MyPics/5_Pastel.png">
                     </div>
                     <div class="my_image_slice">
                         <img class="my_image" src="images/MyPics/3_WaterColor.png">
                     </div>
                     <div class="my_image_slice ">
-                        <img class="my_image" src="images/MyPics/4_Monet.png">
+                        <img class="my_image" src="images/MyPics/2_VanGogh.png" >
                     </div>
                     <div class="my_image_slice">
-                        <img class="my_image image_selected" src="images/MyPics/5_Pastel.png">
+                        <img class="my_image" src="images/MyPics/4_Monet.png" >
                     </div>
                     <div class="my_image_slice">
                         <img class="my_image" src="images/MyPics/6_Ink.png">
@@ -78,24 +80,25 @@
     </section>
 
 <!-- Floaty blurb -->
-
-    <div id="Science-interests">
-        <h1>Highlighted Scientific Interests</h1>
+    <section id = "Science-interests">
+        <div class="h1-title">
+            <h1>Highlighted </h1> <h1>Scientific</h1> <h1>Interests</h1>
+        </div>
         <div class = "Floaty-blurb">
             <div class="interests-container">
                     <div class="interests-list">
-                        <p id = "SynBio" onmouseover="slide(this.id)">Synthetic <br> biology</p>
-                        <p id = "Circuits" onmouseover="slide(this.id)">Gene <br> circuits</p>
-                        <p id = "DataSci" onmouseover="slide(this.id)">Data <br> Science</p>
-                        <p id = "DataVis" onmouseover="slide(this.id)">Data <br> Visualization</p>
-                        <p id = "ML" onmouseover="slide(this.id)">Machine <br> Learning</p>
+                        <h3 id = "SynBio" onmouseover="slide(this.id)">Synthetic <br> biology</h3>
+                        <h3 id = "Circuits" onmouseover="slide(this.id)">Gene <br> circuits</h3>
+                        <h3 id = "DataSci" onmouseover="slide(this.id)">Data <br> Science</h3>
+                        <h3 id = "DataVis" onmouseover="slide(this.id)">Data <br> Visualization</h3>
+                        <h3 id = "ML" onmouseover="slide(this.id)">Machine <br> Learning</h3>
                     </div>
                     <div class="text-bubble">
                         <p id = bubble-text></p>
                     </div>
             </div>
         </div>
-    </div>
+    </section>
 
 
 
@@ -107,10 +110,10 @@
         <div class="manuscripts-container">
             <div class="manuscript-icon" id = "manuscript-icon"></div>
             <div class="manuscript manuscript-transition" id = "manuscript1">
-                <h4>Building a pipeline to identify and engineer constitutive and repressible promoters</h4>
+                <h2>Building a pipeline to identify and engineer constitutive and repressible promoters</h2>
             </div>
             <div class="manuscript manuscript-transition" id = "manuscript2">
-                <h4>A comparative analysis of stably expressed genes across diverse angiosperms exposes </br>flexibility in underlying promoter architecture</h4>
+                <h2>A comparative analysis of stably expressed genes across diverse angiosperms exposes </br>flexibility in underlying promoter architecture</h2>
             </div>
         </div>
 
@@ -275,11 +278,14 @@
 
     <section id="Others">
         <div class="Section-title">
-            <h1>Other Projects</h1>
+            <div class="h1-title">
+                <h1>Other </h1> <h1>Projects</h1>
+            </div>
+            
         </div>
         <div class="Others-wrapper">
             <div class="Others-child">
-                <h2>Music</h2>
+                <h3>Music</h3>
                 <div class="Others-child-discript">
                     <p>I enjoy learning musical instruments and occasionally use them to make music!</p>
                 </div>
@@ -288,19 +294,19 @@
                 </div>
             </div>
             <div class="Others-child">
-                <h2>Coding</h2>
+                <h3>Coding</h3>
                 <div class="Others-child-discript">
                     <p>Here you can find some of my other coding projects, including this website I built using HTML, CSS, and Javascript.</p>
                 </div>
                 <div class="Others-child-content">
                     <div class="Coding-content-container">
                         <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Github" id="github-icon" width="50px">
-                        <h3>Eric-junyao-Yang@github</h3>
+                        <p>Eric-junyao-Yang@github</p>
                     </div>
                 </div>
             </div>
             <div class="Others-child">
-                <h2>Misc.</h2>
+                <h3>Misc.</h3>
                 <div class="Others-child-discript">
                     <p>More to come!</p>
                 </div>
