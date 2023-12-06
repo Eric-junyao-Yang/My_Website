@@ -34,13 +34,12 @@ h1::first-letter {
 }
 
 h2{
-    --__font-size-h2: 3rem;
+    --__font-size-h2: clamp(2.5rem, 3vw, 3rem);
     font-family: 'Noto Sans', serif;
     font-weight: 600;
     font-stretch: 70%;
     font-size: var(--__font-size-h2);
     letter-spacing: calc(var(--__font-size-h2) * -0.04);
-    
 }
 
 h3{
@@ -338,7 +337,6 @@ nav ul li a{
 
 #Science{
     padding: 4vw;
-    display:flex;
     flex-wrap: wrap;
     isolation: isolate;
     height: 1080px;
@@ -346,7 +344,9 @@ nav ul li a{
 
 .manuscripts-container{
     position: relative;
-    width: 100%;
+    width: 80vw;
+    left: 50px;
+    padding-top: 0.7rem;
 }
 
 .manuscript-icon{
@@ -356,7 +356,7 @@ nav ul li a{
     width: 25px;
     height: 25px;
     left: -30px;
-    top: 4px;
+    top: 20px;
     animation-name: blink;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -402,6 +402,7 @@ nav ul li a{
     color: var(--action-color);
     z-index: 3;
     cursor: pointer;
+    line-height: 2.5rem;
 }
 
 #manuscript2{
@@ -409,7 +410,7 @@ nav ul li a{
     transform: rotate(0deg) translateX(100px) translateY(50px) rotate(0deg);
     font-size: 20px;
     font-weight: lighter;
-    color: #1d27591d;
+    color: #1d27590e;
     z-index: 2;
     cursor: pointer;
     line-height: 2.5rem;
@@ -424,7 +425,7 @@ nav ul li a{
     --unit-length: 90vw ;
     position: relative;
     /* border: 1px solid #CCC; */
-    margin-top: 130px;
+    margin-top: 10rem;
     perspective: calc(var(--unit-length)*2);
     width: var(--unit-length);
     height: var(--unit-length);
@@ -534,7 +535,7 @@ nav ul li a{
 
 .pipeline-paper{
     display:flex;
-    /* margin-top: 0px; */
+    margin-top: ;
 }
 
 .pipeline-left-col{
@@ -542,6 +543,14 @@ nav ul li a{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.pipeline-left-col h3{
+    padding-top: 0.6rem;
+}
+
+.pipeline-left-col .background h3{
+    padding-top: 0;
 }
 
 .pipeline-right-col{

@@ -82,9 +82,9 @@ function rotate(){
         FlipCube('show-right')
 
         animationFinished = false
-        mn1.style.transform = "rotate(-90deg) translateX(-70px) translateY(150px) rotate(90deg)"
-        mn1.style.zIndex = 1
-        mn2.style.zIndex = 2
+        mn1.style.transform = "rotate(-90deg) translateX(-70px) translateY(100px) rotate(90deg)"
+        mn1.style.zIndex = 2
+        mn2.style.zIndex = 3
         mn2.style.transform = "rotate(-90deg) translateX(0px) translateY(0px) rotate(90deg)"
 
         mn2.style.fontSize = "30px"
@@ -93,7 +93,7 @@ function rotate(){
 
         mn1.style.fontSize = "20px"
         mn1.style.fontWeight = "lighter"
-        mn1.style.color = "#b4b4b387"
+        mn1.style.color = "#1d27590e"
 
         setTimeout(function(){
             mn_icon.classList.remove("icon-rotate-click")
@@ -111,8 +111,8 @@ function rotate(){
 
         animationFinished = false
         mn1.style.transform = "rotate(-180deg) translateX(0px) translateY(0px) rotate(180deg)"
-        mn1.style.zIndex = 2
-        mn2.style.zIndex = 1
+        mn1.style.zIndex = 3
+        mn2.style.zIndex = 2
         mn2.style.transform = "rotate(-180deg) translateX(-100px) translateY(-50px) rotate(180deg)"
 
         mn1.style.fontSize = "30px"
@@ -121,7 +121,7 @@ function rotate(){
 
         mn2.style.fontSize = "20px"
         mn2.style.fontWeight = "lighter"
-        mn2.style.color = "#b4b4b387"
+        mn2.style.color = "#1d27590e"
 
         setTimeout(function(){
             mn2.classList.remove("manuscript-transition")
