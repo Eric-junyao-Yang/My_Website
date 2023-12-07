@@ -236,3 +236,8 @@ function changeLogic(value){
     }
 }
 
+// Copy email!
+let email_box = document.querySelector(".email")
+email_box.onclick = function(){
+    navigator.clipboard.writeText("mail@ericyang.phd")
+}
