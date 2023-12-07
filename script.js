@@ -1,17 +1,27 @@
 // Menu Controls
-let menuBtn = document.getElementById("menuBtn")
-let sideNav = document.getElementById("sideNav")
-sideNav.style.right =  "-250px";
-menuBtn.onclick = function(){
-    if(sideNav.style.right == "-250px"){
-        sideNav.style.right = "0";
-        menuBtn.style.transform = "rotate(90deg)";
+let text_box = document.querySelector(".slide-out-menu")
+let text_box_text = document.querySelector(".slide-out-menu span")
+
+let menu_wrapper = document.querySelector(".menu-btn-wrapper")
+menu_wrapper.addEventListener("mouseover", event =>{
+    text_box.style.width = "13rem"
+    if (event.target == document.querySelector(".menu-btn.home-btn")){
+        text_box_text.innerHTML = "HOME"
     }
-    else{
-        sideNav.style.right = "-250px";
-        menuBtn.style.transform = "rotate(0)";
+    if (event.target == document.querySelector(".menu-btn.science-btn")){
+        text_box_text.innerHTML = "SCIENCE"
     }
-}
+    if (event.target == document.querySelector(".menu-btn.others-btn")){
+        text_box_text.innerHTML = "OTHERS"
+    }
+    if (event.target == document.querySelector(".menu-btn.contact-btn")){
+        text_box_text.innerHTML = "CONTACT"
+    }
+})
+
+menu_wrapper.addEventListener("mouseleave", event =>{
+    text_box.style.width = "0"
+})
 
 // Photo viewer
 let image_slices = document.querySelectorAll(".my_image_slice")

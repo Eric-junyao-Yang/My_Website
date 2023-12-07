@@ -4,6 +4,7 @@
     /* outline: 1px solid red; */
     box-sizing: border-box;
     font-family: sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* ---Defile color palette--- */
@@ -72,36 +73,139 @@ p i {
 }
 
 
-/*---Sliding Menu---*/
-
-#sideNav{
-    width: 250px;
-    height: 100vh;
+/*---Menu---*/
+.menu-btn{
     position: fixed;
-    right:-250px;
-    top:0;
-    background: var(--highlight-color-1);
-    z-index:2;
-    transition: .5s;
+    z-index: 5;
+    cursor: pointer;
+    background-color: var(--action-color);
+    border: 5px solid var(--highlight-color-2);
+    transition: 300ms;
+    box-shadow: 3px 3px ;
 }
 
-nav ul{
-    margin-top: 100px;
+.menu-btn:hover{
+    background-color: var(--contrast-color);
 }
 
-nav ul li{
-    list-style: none;
-    margin: 50px 20px;
+.menu-btn.home-btn{
+    right: 30px;
+    top: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: var(--background-color);
-    font-size: 25px;
-    font-weight: bold;
+.menu-btn.science-btn{
+    right: 80px;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    animation-name: science-btn-ani;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
 }
 
-#menuBtn{
+@keyframes science-btn-ani{
+    0%, 100% {transform: translate(0px,0px);}
+    10%{transform: translate(-2px,-2px);}
+    20%{transform: translate(2px,-1px);}
+    30%{transform: translate(1px,2px);}
+    40%{transform: translate(0px,-1px);}
+    40%{transform: translate(-1px,2px);}
+    60%{transform: translate(1px,-2px);}
+    70%{transform: translate(2px,0px);}
+    80%{transform: translate(1px,-1px);}
+    90%{transform: translate(2px,-2px);}
+}
+
+.menu-btn.others-btn{
+    right: 72px;
+    top: 72px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    animation-name: others-btn-ani;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+}
+
+@keyframes others-btn-ani{
+    0%, 100% {transform: translate(0px,0px);}
+    10%{transform: translate(2px,-2px);}
+    20%{transform: translate(0px,2px);}
+    30%{transform: translate(-2px,-2px);}
+    40%{transform: translate(2px,-1px);}
+    40%{transform: translate(0px,-1px);}
+    60%{transform: translate(2px,-2px);}
+    70%{transform: translate(0px,2px);}
+    80%{transform: translate(-1px,-1px);}
+    90%{transform: translate(1px,-2px);}
+}
+
+.menu-btn.contact-btn{
+    right: 20px;
+    top: 80px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    animation-name: contact-btn-ani;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+}
+
+@keyframes contact-btn-ani{
+    0%, 100% {transform: translate(0px,0px);}
+    10%{transform: translate(-2px,2px);}
+    20%{transform: translate(1px,1x);}
+    30%{transform: translate(-1px,-2px);}
+    40%{transform: translate(2px,0px);}
+    40%{transform: translate(-2px,2px);}
+    60%{transform: translate(-1px,-1px);}
+    70%{transform: translate(0px,-2px);}
+    80%{transform: translate(-1px,1px);}
+    90%{transform: translate(2px,-1px);}
+}
+
+.slide-out-menu{
+    position:fixed;
+    height: 50px;
+    /* border: 5px solid var(--contrast-color); */
+    background-color: var(--highlight-color-1);
+    right: 130px;
+    top: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 0px;
+    transition: 400ms ease-in;
+    z-index: 5;
+}
+
+.slide-out-menu span{
+    padding: 0 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family:'Noto Sans', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    font-stretch: 90%;
+    letter-spacing: calc(3rem * -0.07);
+    color: rgb(255, 255, 255);
+}
+
+/* <div class="home-btn"></div>
+<div class="science-btn"></div>
+<div class="others-btn"></div>
+<div class="contact-btn"></div> */
+
+/* #menuBtn{
     width: 55px;
     position: fixed;
     right: 30px;
@@ -110,7 +214,7 @@ nav ul li a{
     cursor: pointer;
     transform: rotate(0);
     transition: .5s;
-}
+} */
 
 /*---About me---*/
 
@@ -126,6 +230,7 @@ nav ul li a{
     flex-wrap: wrap;
     /* outline: 2px solid blue; */
     height: calc(100vh - 8vw);
+    align-items: center;
 }
 
 .AboutMe-top-left-col{
@@ -151,16 +256,16 @@ nav ul li a{
 }
 
 .Mah-name span:nth-child(1) {
-    font-size: clamp(9rem, 19vw + 0.5rem, 25rem);
+    font-size: clamp(9rem, 20vw + 0.5rem, 23.5rem);
 }
 
 .Mah-name span:nth-child(2) {
-    font-size: clamp(7.7rem, 17vw + 0.5rem, 20.7rem);
-    padding-left: 1.2%;
+    font-size: clamp(9rem, 20vw + 0.5rem, 23.5rem);
+    padding-left: 1.1%;
 }
 
 .Mah-name span:nth-child(3) {
-    font-size: clamp(4rem, 8.5vw + 0.5rem, 10.4rem);
+    font-size: clamp(5rem, 11vw + 0.5rem, 13.3rem);
 }
 
 /* ---Image Container--- */
@@ -179,6 +284,7 @@ nav ul li a{
     border: 8px solid black;
     border-radius: 5px;
     background-color: black;
+    box-shadow: clamp(10px, 3vw, 50px) clamp(10px, 3vw, 50px) rgba(0, 0, 0, 0.9);
 }
 
 .my_image_slice{
@@ -236,22 +342,22 @@ nav ul li a{
     display:inline-block;
     background: linear-gradient(to right, #CB627E, #cb627e00);
     width: clamp(17.5rem, 39.4vw, 45.9rem);
-    height: clamp(1rem, 1vw, 1.5rem);
+    height: clamp(1rem, 2vw, 2.2rem);
 }
 
 .div-lines-2{
     display:inline-block;
     background: linear-gradient(to right, #CB627E, #cb627e00);
     width: clamp(8.75rem, 19.7vw, 22.95rem);
-    height: clamp(.75rem, 0.75vw, 1rem); 
-    margin-top: clamp(1px, 0.3vw, 2rem);
+    height: clamp(.59rem, 1.18vw, 1.3rem); 
+    margin-top: clamp(1px, 0.3vw, 1rem);
 }
 
 .div-lines-3{
     display:inline-block;
     background: linear-gradient(to right, #CB627E, #cb627e00);
     width: clamp(4.375rem, 9.85vw, 11.475rem);
-    height: clamp(.75rem, 0.75vw, 1rem); 
+    height: clamp(.59rem, 1.18vw, 1.3rem); 
     margin-top: clamp(1px, 0.3vw, 2rem);
 }
 
@@ -274,7 +380,7 @@ nav ul li a{
     flex-direction: column;
     align-items: center;
     margin: 0vw 4vw 0 4vw;
-    height: 40vh;
+    height: 50vh;
 }
 
 .h1-title{
@@ -310,7 +416,6 @@ nav ul li a{
     font-size: clamp(1.8rem, 2vw, 2rem);
     line-height: 1.95rem;
     color: var(--highlight-color-2);
-    text-shadow: 10px 10px 5px #0c182f1f;
 }
 
 .text-bubble{
@@ -322,7 +427,7 @@ nav ul li a{
     padding: 20px;
     position: relative;
     min-height: 100px;
-    box-shadow: 10px 10px 15px 3px #0c182f58;
+    box-shadow: 20px 10px #0c182fb1;
 }
 
 .text-bubble p{
