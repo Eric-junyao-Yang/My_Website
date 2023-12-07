@@ -1,26 +1,37 @@
 // Menu Controls
 let text_box = document.querySelector(".slide-out-menu")
 let text_box_text = document.querySelector(".slide-out-menu span")
-
 let menu_wrapper = document.querySelector(".menu-btn-wrapper")
+
+var seq=""
+
 menu_wrapper.addEventListener("mouseover", event =>{
     text_box.style.width = "13rem"
     if (event.target == document.querySelector(".menu-btn.home-btn")){
         text_box_text.innerHTML = "HOME"
+        seq = ""
     }
     if (event.target == document.querySelector(".menu-btn.science-btn")){
         text_box_text.innerHTML = "SCIENCE"
+        seq = seq.concat("1")
     }
     if (event.target == document.querySelector(".menu-btn.others-btn")){
         text_box_text.innerHTML = "OTHERS"
+        seq = seq.concat("2")
     }
     if (event.target == document.querySelector(".menu-btn.contact-btn")){
         text_box_text.innerHTML = "CONTACT"
+        seq = seq.concat("3")
     }
 })
 
+// None of yo business!
 menu_wrapper.addEventListener("mouseleave", event =>{
     text_box.style.width = "0"
+    if (seq == "1231313") {
+        text_box.style.width = "25rem"
+        text_box_text.innerHTML = "❤️ HI CAMILLE ❤️"
+    }
 })
 
 // Photo viewer
