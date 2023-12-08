@@ -28,6 +28,10 @@
     <!---About Me-->
     <section id = "AboutMe">
         <div class="AboutMe-top">
+            <div class="phone-image-container">
+                <div class="phone-image-VG"></div>
+                <div class="overlay"><div class="circle"></div></div>
+            </div>
             <div class="AboutMe-top-left-col">
                 <div class="Mah-name">
                     <span>Eric J.Y.</span>
@@ -86,11 +90,36 @@
         <div class = "Floaty-blurb">
             <div class="interests-container">
                     <div class="interests-list">
-                        <h3 id = "SynBio" onmouseover="slide(this.id)">Synthetic <br> biology</h3>
-                        <h3 id = "Circuits" onmouseover="slide(this.id)">Gene <br> circuits</h3>
-                        <h3 id = "DataSci" onmouseover="slide(this.id)">Data <br> Science</h3>
-                        <h3 id = "DataVis" onmouseover="slide(this.id)">Data <br> Visualization</h3>
-                        <h3 id = "ML" onmouseover="slide(this.id)">Machine <br> Learning</h3>
+                        <h3 id = "SynBio" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_SynBio', this)">Synthetic <br> biology 
+                            <div class="toggle-icon">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                            </div>
+                        </h3>
+                        <div class="phone_interests_list display_on" id="phone_SynBio">
+                            <p>I screened for new plant constitutive promoters (promoters that are on in all the tissues at all times) and used them to build genetic logic gates.</p>
+                        </div>
+                        <h3 id = "Circuits" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_Circuits')">Gene <br> circuits
+                            <div class="toggle-icon">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                            </div>
+                        </h3>
+                        <div class="phone_interests_list" id="phone_Circuits">
+                            <p>By introducing 2 unique gRNA target sequences into the constitutive promoters, they can be independently targeted by dCas9-guided repressors, such a system works as a logic NOR gate.</p>
+                        </div>
+                        <h3 id = "DataSci" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataSci')">Data <br> Science</h3>
+                        <div class="phone_interests_list" id="phone_DataSci">
+                            <p>By analyzing hundreds of publicly available RNAseq datasets across multiple plant species I was able to identify sets of evolutionary related promoters and track their expression pattern and promoter architecture over evolutionary time.</p>
+                        </div>
+                        <h3 id = "DataVis" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataVis')">Data <br> Visualization</h3>
+                        <div class="phone_interests_list" id="phone_DataVis">
+                            <p>I am passionate about using concise figures to tell scientific stories. Apart from the figures in the manuscripts, I also build interactve and animated figures you can check out below!</p>
+                        </div>
+                        <h3 id = "ML" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_ML')">Machine <br> Learning</h3>
+                        <div class="phone_interests_list" id="phone_ML">
+                            <p>I used Machine Learning to predict protein function and stability by using primary sequence as inputs and flow cytometry measurements as outputs</p>
+                        </div>
                     </div>
                     <div class="text-bubble">
                         <p id = bubble-text></p>

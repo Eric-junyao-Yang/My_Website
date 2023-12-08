@@ -72,6 +72,10 @@ p i {
     letter-spacing: calc(var(--__font-size-p) * 0.01);
 }
 
+/* Hide some Phone stuff */
+.phone-image-container{
+    display: none;
+}
 
 /*---Menu---*/
 .menu-btn{
@@ -450,6 +454,9 @@ p i {
     transition: 0.3s ease-in;
 }
 
+.phone_interests_list{
+    display: none;
+}
 
 /* ---Science--- */
 
@@ -1186,4 +1193,226 @@ footer{
 
 .email:active::after{
     font-size: 1.05rem;
+}
+
+
+@media (max-width: 1170px) {
+    /* All the stuff that should be removed */
+
+    .menu-btn-wrapper, .slide-out-menu, .AboutMe-top-right-col{
+        display: none;
+    }
+
+    /* About me */
+    #AboutMe{
+        height: 100vh;
+    }
+
+    .AboutMe-top{
+        height: 100%;
+        /* outline: 5px solid orange; */
+        display:flex;
+        flex-direction: column;
+        /* flex-wrap: nowrap; */
+    }
+
+    .phone-image-container{
+        display:inline;
+        /* outline: 9px solid red; */
+        flex: 1;
+        aspect-ratio: 1 / 1;
+    }
+
+    .AboutMe-top-left-col{
+        width: 100%;
+        max-width: 680px;
+        padding-top: 1rem;
+        /* outline: 5px solid purple; */
+    }
+    .phone-image-container .phone-image-VG{
+        background-image: url("images/MyPics/1_Original.png");
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .phone-image-container{
+        box-shadow: 10px 10px black;
+        position: relative;
+    }
+
+    .overlay{
+        position: absolute;
+        --__top_offset: 50%;
+        --__left_offset: 50%;
+        /* top: 0;
+        left: 0; */
+        top: var(--__top_offset); 
+        left: var(--__left_offset); 
+        background-position: calc(var(--__left_offset) * 2) calc(var(--__top_offset) *2);
+        width: 50%;
+        height: 50%;
+        /* background-color: black; */
+        /* background-size: 385.0333251953125px; */
+        overflow: hidden;
+        border-radius: 50%;
+        background-image: url("images/MyPics/2_VanGogh.png");
+        /* background: radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px); */
+        animation-name: change_background_pic;
+        animation-duration: 42s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        transition: 2s;
+    }
+
+    @keyframes change_background_pic{
+        0%{
+            background-image: url("images/MyPics/2_VanGogh.png")
+        }
+
+        14.29%{
+            background-image: url("images/MyPics/3_WaterColor.png")
+        }
+
+        28.57%{
+            background-image: url("images/MyPics/4_Monet.png")
+        }
+
+        42.86%{
+            background-image: url("images/MyPics/5_Pastel.png")
+        }
+
+        57.14%{
+            background-image: url("images/MyPics/6_Ink.png")
+        }
+
+        71.43%{
+            background-image: url("images/MyPics/7_JacksonPollock.png")
+        }
+
+        85.71%{
+            background-image: url("images/MyPics/8_Cubist2.png")
+        }
+
+        100%{
+            background-image: url("images/MyPics/2_VanGogh.png")
+        }
+    }
+
+    .Mah-name span:nth-child(1) {
+        font-size: clamp(9rem, 37vw + 0.5rem, 18rem);
+    }
+
+    .Mah-name span:nth-child(2) {
+        font-size: clamp(9rem, 37vw + 0.5rem, 18rem);
+        padding-left: 1.2%;
+    }
+
+    .Mah-name span:nth-child(3) {
+        font-size: clamp(5rem, 21vw + 0.5rem, 10.3rem);
+    }
+
+    .short-bio p{
+        padding-top: 1rem;
+        font-size: 1.2rem;
+        letter-spacing: calc(1.2rem * -0.04);
+        line-height: 1.5rem;
+    }
+
+    #Science-interests{
+        height: 100vh;
+        background-color: var(--contrast-color);
+        margin: 0;
+    }
+
+    .h1-title{
+        display: inline;
+        text-align: left;
+        padding: 1rem;
+        line-height: 3.0rem;
+    } h1{
+        --__font-size-h1: 3rem;
+        color: var(--background-color)
+    } h1::first-letter {
+        color: var(--highlight-color-1)
+    }
+
+    .Floaty-blurb{
+        /* display: none; */
+        width: 100%;
+    }
+
+    .interests-list{
+        flex-direction: column;
+        padding: 0 1rem;
+
+    } br{
+        display: none;
+    }
+
+    .interests-list h3{
+        display: flex;
+    }
+
+    .phone_interests_list{
+            display: flex;
+            margin: 1rem 0 1rem 1rem;
+            max-height: 0;
+            padding: 0 1rem;
+            background-color: var(--background-color);
+            border: 4px solid var(--action-color);
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-family: 'Literata', serif;
+            font-weight: 300;
+            color: var(--contrast-color);
+            letter-spacing: calc(1rem * 0.01);
+            transition: 1s ease-in-out;
+            overflow: hidden;
+    }
+
+    .display_on{
+        max-height: 30vh;
+        padding: 1rem;
+    }
+
+    .toggle-icon{
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+        margin-left: 1rem;
+    }
+
+    .toggle-icon .bar1{
+        position: absolute;
+        top: 10%;
+        bottom: 10%;
+        width: 20%;
+        left: 40%;
+        background-color: var(--action-color);
+        transition: 300ms;
+    }
+
+    .bar1-on{
+        transform: rotate(90deg);
+    }
+
+    .toggle-icon .bar2{
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        height: 20%;
+        top: 40%;
+        background-color: var(--action-color);
+        transition: 300ms;
+    }
+
+    .bar2-on{
+        left: 50%;
+        right: 50%;
+    }
+
+    .text-bubble, .text-bubble-arrow{
+        display: none;
+    }
 }

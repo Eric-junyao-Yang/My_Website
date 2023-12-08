@@ -64,6 +64,16 @@ let bubble_text = document.getElementById("bubble-text")
 let interest2 = "SynBio"
 slide("SynBio")
 text_bubble_arrow.classList.add("arrow-transition");
+
+var SynBio_text = document.getElementById("phone_SynBio").children[0].textContent
+var Circuits_text = document.getElementById("phone_Circuits").children[0].textContent
+var DataSci_text = document.getElementById("phone_DataSci").children[0].textContent
+var DataVis_text = document.getElementById("phone_DataVis").children[0].textContent
+var ML_text = document.getElementById("phone_ML").children[0].textContent
+
+bubble_text.innerHTML = SynBio_text
+
+
 function slide(interest){
     interest2 = interest
     var element = document.getElementById(interest);
@@ -72,15 +82,15 @@ function slide(interest){
     text_bubble_arrow.style.left = xCenter - 10 + "px";
     text_bubble_arrow.style.top = (box.bottom + window.scrollY) + "px";
     if (interest == "SynBio"){
-        bubble_text.innerHTML = "I screened for new plant constitutive promoters (promoters that are on in all the tissues at all times) and used them to build genetic logic gates.";
+        bubble_text.innerHTML = SynBio_text;
     } else if (interest == "Circuits"){
-        bubble_text.innerHTML = "By introducing 2 unique gRNA target sequences into the constitutive promoters, they can be independently targeted by dCas9-guided repressors, such a system works as a logic NOR gate.";
+        bubble_text.innerHTML = Circuits_text;
     } else if (interest == "DataSci"){
-        bubble_text.innerHTML = "By analyzing hundreds of publicly available RNAseq datasets across multiple plant species I was able to identify sets of evolutionary related promoters and track their expression pattern and promoter architecture over evolutionary time.";
+        bubble_text.innerHTML = DataSci_text;
     } else if (interest == "DataVis"){
-        bubble_text.innerHTML = "I am passionate about using concise figures to tell scientific stories. Apart from the figures in the manuscripts, I also build interactve and animated figures you can check out below!";
+        bubble_text.innerHTML = DataVis_text;
     } else if (interest == "ML"){
-        bubble_text.innerHTML = "I used Machine Learning to predict protein function and stability by using primary sequence as inputs and flow cytometry measurements as outputs";
+        bubble_text.innerHTML = ML_text;
     }
 }
 window.onresize = function(){ //Kind of hacky code that makes window resizing not trigger transition of the text-bubble arrow
@@ -262,3 +272,34 @@ let email_box = document.querySelector(".email")
 email_box.onclick = function(){
     navigator.clipboard.writeText("mail@ericyang.phd")
 }
+
+
+//Phone image display
+let img_overlay = document.querySelector(".overlay")
+let phone_image_conainter = document.querySelector(".phone-image-container")
+const phone_image_container_height = phone_image_conainter.getBoundingClientRect().height
+img_overlay.style.backgroundSize = phone_image_container_height + "px"
+
+function changePosition(X, Y) {
+    img_overlay.style.setProperty('--__top_offset', Y + "%");
+    img_overlay.style.setProperty('--__left_offset', X + "%");
+}
+
+function randomizePosition() {
+    var randX = Math.floor(Math.random() * 50)
+    var randY = Math.floor(Math.random() * 50)
+    changePosition(randX, randY)
+}
+
+setInterval(randomizePosition, 2000);
+
+
+//Interest list Phone version
+function toggleDisplay(target, subject){
+    toggle_target = document.getElementById(target)
+    toggle_target.classList.toggle("display_on")
+    subject.querySelector(".toggle-icon .bar1").classList.toggle("bar1-on")
+    subject.querySelector(".toggle-icon .bar2").classList.toggle("bar2-on")
+}
+
+
