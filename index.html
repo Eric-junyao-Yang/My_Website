@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,300;1,7..72,300&family=Noto+Sans:wdth,wght@70,602;90,700;97,700;100,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,300;1,7..72,300&family=Noto+Sans:wdth,wght@70,602;90,700;97,700;100,400&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -90,16 +90,16 @@
         <div class = "Floaty-blurb">
             <div class="interests-container">
                     <div class="interests-list">
-                        <h3 id = "SynBio" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_SynBio', this)">Synthetic <br> biology 
+                        <h3 id = "SynBio" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_SynBio')">Synthetic <br> Biology 
                             <div class="toggle-icon">
-                                <div class="bar1"></div>
-                                <div class="bar2"></div>
+                                <div class="bar1 bar1-on"></div>
+                                <div class="bar2 bar2-on"></div>
                             </div>
                         </h3>
                         <div class="phone_interests_list display_on" id="phone_SynBio">
                             <p>I screened for new plant constitutive promoters (promoters that are on in all the tissues at all times) and used them to build genetic logic gates.</p>
                         </div>
-                        <h3 id = "Circuits" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_Circuits')">Gene <br> circuits
+                        <h3 id = "Circuits" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_Circuits')">Gene <br> Circuits
                             <div class="toggle-icon">
                                 <div class="bar1"></div>
                                 <div class="bar2"></div>
@@ -108,15 +108,30 @@
                         <div class="phone_interests_list" id="phone_Circuits">
                             <p>By introducing 2 unique gRNA target sequences into the constitutive promoters, they can be independently targeted by dCas9-guided repressors, such a system works as a logic NOR gate.</p>
                         </div>
-                        <h3 id = "DataSci" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataSci')">Data <br> Science</h3>
+                        <h3 id = "DataSci" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataSci')">Data <br> Science
+                            <div class="toggle-icon">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                            </div>
+                        </h3>
                         <div class="phone_interests_list" id="phone_DataSci">
                             <p>By analyzing hundreds of publicly available RNAseq datasets across multiple plant species I was able to identify sets of evolutionary related promoters and track their expression pattern and promoter architecture over evolutionary time.</p>
                         </div>
-                        <h3 id = "DataVis" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataVis')">Data <br> Visualization</h3>
+                        <h3 id = "DataVis" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_DataVis')">Data <br> Visualization
+                            <div class="toggle-icon">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                            </div>
+                        </h3>
                         <div class="phone_interests_list" id="phone_DataVis">
                             <p>I am passionate about using concise figures to tell scientific stories. Apart from the figures in the manuscripts, I also build interactve and animated figures you can check out below!</p>
                         </div>
-                        <h3 id = "ML" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_ML')">Machine <br> Learning</h3>
+                        <h3 id = "ML" onmouseover="slide(this.id)" onmousedown="toggleDisplay('phone_ML')">Machine <br> Learning
+                            <div class="toggle-icon">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                            </div>
+                        </h3>
                         <div class="phone_interests_list" id="phone_ML">
                             <p>I used Machine Learning to predict protein function and stability by using primary sequence as inputs and flow cytometry measurements as outputs</p>
                         </div>
@@ -172,15 +187,33 @@
                     <div class="pipeline-paper" id="pipeline-paper">
                         <div class="pipeline-left-col">
                             <div class="background">
-                                <h3>Background</h3>
+                                <h3>Background
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
+
                                 <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
                             </div>
                             <div class="problem">
-                                <h3>Problem</h3>
+                                <h3>Problem
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
+
                                 <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
                             </div>
                             <div class="our-approach">
-                                <h3>Our approach</h3>
+                                <h3>Our approach
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
+
                                 <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
                                 
                                 <div class="Read-more">
@@ -188,7 +221,13 @@
                                 </div>                          
                             </div>
                             <div class="results">
-                                <h3>Results</h3>
+                                <h3>Results
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
+
                                 <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
                             </div>
                             <div class="Read-more">
@@ -261,19 +300,39 @@
                     <div class="coretype-paper">
                         <div class="coretype-left">
                             <div class="background">
-                                <h3>Background</h3>
+                                <h3>Background
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
                                 <p>Main core promoter types in plants include TATA, Y-patch, and Coreless promoters. TATA promoters tend to be conditionally expressed while Coreless promoters tend to be constitutive.</p>
                             </div>
                             <div class="question">
-                                <h3>Question</h3>
+                                <h3>Question
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
                                 <p>Do changes in core promoter types correlate with changes in expression pattern? </p>
                             </div>
                             <div class="approach">
-                                <h3>Approach</h3>
+                                <h3>Approach
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
                                 <p>We leveraged RNA-seq atlases for 15 plant species to evaluate expression uniformity for each promoter, and identified orthologous genes across species (i.e. evolutionarily related). We can then track changes in expression uniformity and core promoter type of related promoters across evolution. </p>
                             </div>
                             <div class="findings">
-                                <h3>Findings</h3>
+                                <h3>Findings
+                                    <div class="toggle-icon">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                    </div>
+                                </h3>
                                 <p>We found unexpected trends for expression pattern for Coreless promoter in monocots (see animation). We also found that changes in core promoter types do no explain changes in expression pattern.</p>
                             </div>
                             <div class="Read-more">

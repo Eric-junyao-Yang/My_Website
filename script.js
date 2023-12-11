@@ -174,19 +174,27 @@ function rotate(){
     }
 }
 
-mn1.onclick = rotate
-mn2.onclick = rotate
-mn_icon.onclick = rotate
+function rotate_wrapper(){
+    if(window.innerWidth > 1170){
+        rotate()
+    }
+}
 
+mn1.onclick = rotate_wrapper
+mn2.onclick = rotate_wrapper
+mn_icon.onclick = rotate_wrapper
+
+// Cube rotation
 let cube = document.querySelector('.cube')
 currentClass = ""
-// Cube rotation
 function FlipCube(side){
-    if (currentClass){
-        cube.classList.remove(currentClass);
+    if(window.innerWidth > 1170 ){ /* only flip in desktop mode */
+        if (currentClass){
+            cube.classList.remove(currentClass);
+        }
+        cube.classList.add(side)
+        currentClass = side
     }
-    cube.classList.add(side)
-    currentClass = side
 }
 
 let x_button = document.querySelector(".fa-circle-xmark")
@@ -295,11 +303,69 @@ setInterval(randomizePosition, 2000);
 
 
 //Interest list Phone version
-function toggleDisplay(target, subject){
+let int_list = document.querySelectorAll(".phone_interests_list")
+function toggleDisplay(target){
     toggle_target = document.getElementById(target)
-    toggle_target.classList.toggle("display_on")
-    subject.querySelector(".toggle-icon .bar1").classList.toggle("bar1-on")
-    subject.querySelector(".toggle-icon .bar2").classList.toggle("bar2-on")
+    if (toggle_target.classList.contains("display_on")){
+        int_list.forEach(int => {
+            int.classList.remove("display_on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
+        })
+    } else {
+        int_list.forEach(int => {
+            int.classList.remove("display_on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
+        })
+        toggle_target.classList.add("display_on")
+        toggle_target.previousElementSibling.querySelector(".toggle-icon .bar1").classList.add("bar1-on")
+        toggle_target.previousElementSibling.querySelector(".toggle-icon .bar2").classList.add("bar2-on")
+    }
 }
 
 
+//Synch scrolling + text scroll
+let top_div = document.querySelector(".manuscripts-container")
+let bot_div = document.querySelector(".cube")
+
+var syncingTop = false
+var syncingBot = false
+
+top_div.onscroll = function(){
+    if(window.innerWidth <= 1170){
+        if (!syncingTop){
+            syncingBot = true
+            bot_div.scrollLeft = this.scrollLeft
+        }
+        syncingTop = false
+        checkActivePaper()
+    }
+}
+
+bot_div.onscroll = function(){
+    if(window.innerWidth <= 1170){
+        if (!syncingBot){
+            syncingTop = true
+            top_div.scrollLeft = this.scrollLeft
+        }
+        syncingBot = false
+        checkActivePaper()
+    }
+}
+
+function checkActivePaper(){
+    let man1 = document.getElementById("manuscript1")
+    let man2 = document.getElementById("manuscript2")
+    if (bot_div.scrollLeft == 0){
+        man1.querySelector("h2").classList.add("manuscript1-ani")
+        man2.querySelector("h2").classList.remove("manuscript2-ani")
+    } else if (bot_div.scrollLeft == bot_div.scrollLeftMax){
+        man1.querySelector("h2").classList.remove("manuscript1-ani")
+        man2.querySelector("h2").classList.add("manuscript2-ani")
+    }
+}
+//Set up first text scroll
+if(window.innerWidth <= 1170){
+    checkActivePaper()
+}
