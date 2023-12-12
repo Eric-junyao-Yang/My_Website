@@ -280,7 +280,11 @@ function changeLogic(value){
 // Copy email!
 let email_box = document.querySelector(".email")
 email_box.onclick = function(){
-    navigator.clipboard.writeText("mail@ericyang.phd")
+    if(window.innerWidth <= 1170){
+        window.open("mailto:mail@ericyang.phd")
+    } else {
+        navigator.clipboard.writeText("mail@ericyang.phd")
+    }
 }
 
 
@@ -359,10 +363,11 @@ bot_div.onscroll = function(){
 function checkActivePaper(){
     let man1 = document.getElementById("manuscript1")
     let man2 = document.getElementById("manuscript2")
+    let scrollLeftmax = bot_div.scrollWidth - bot_div.clientWidth;
     if (bot_div.scrollLeft == 0){
         man1.querySelector("h2").classList.add("manuscript1-ani")
         man2.querySelector("h2").classList.remove("manuscript2-ani")
-    } else if (bot_div.scrollLeft == bot_div.scrollLeftMax){
+    } else if (bot_div.scrollLeft == scrollLeftmax){  //ScrollLeft is a firefox thing, so define it myself
         man1.querySelector("h2").classList.remove("manuscript1-ani")
         man2.querySelector("h2").classList.add("manuscript2-ani")
     }

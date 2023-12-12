@@ -1262,7 +1262,7 @@ footer{
         animation-duration: 42s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
-        transition: 2s;
+        transition: top 2s, left 2s, background-position 2s;
     }
 
     @keyframes change_background_pic{
@@ -1735,6 +1735,7 @@ footer{
     }
 
     .email::after{
+        display: none;
         opacity: 1;
         rotate: 5deg;
         transform: translate(25px, 12px)
