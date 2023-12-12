@@ -387,20 +387,20 @@ let firstpaper_list = document.querySelectorAll(".cube__face p")
 
 
 function toggle_accordion(toggle_target, siblings_list){
-    if (toggle_target.classList.contains("display_on")){
+    if (toggle_target.classList.contains("display_on2")){
         siblings_list.forEach(int => {
-            int.classList.remove("display_on")
+            int.classList.remove("display_on2")
             int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
             int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
         })
         seq = ""
     } else {
         siblings_list.forEach(int => {
-            int.classList.remove("display_on")
+            int.classList.remove("display_on2")
             int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
             int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
         })
-        toggle_target.classList.add("display_on")
+        toggle_target.classList.add("display_on2")
         toggle_target.previousElementSibling.querySelector(".toggle-icon .bar1").classList.add("bar1-on")
         toggle_target.previousElementSibling.querySelector(".toggle-icon .bar2").classList.add("bar2-on")
     }

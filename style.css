@@ -1245,19 +1245,14 @@ footer{
         position: absolute;
         --__top_offset: 50%;
         --__left_offset: 50%;
-        /* top: 0;
-        left: 0; */
         top: var(--__top_offset); 
         left: var(--__left_offset); 
         background-position: calc(var(--__left_offset) * 2) calc(var(--__top_offset) *2);
         width: 50%;
         height: 50%;
-        /* background-color: black; */
-        /* background-size: 385.0333251953125px; */
         overflow: hidden;
         border-radius: 50%;
         background-image: url("images/MyPics/2_VanGogh.png");
-        /* background: radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px); */
         animation-name: change_background_pic;
         animation-duration: 42s;
         animation-timing-function: linear;
@@ -1383,7 +1378,7 @@ footer{
     }
 
     .display_on{
-        max-height: 30vh !important;
+        max-height: 12rem !important;
         padding: 1rem !important;
     }
 
@@ -1614,6 +1609,11 @@ footer{
         max-height: 0rem;
         padding: 0 1rem; /** 0.5rem **/
         transition: 1s ease-in-out;
+    }
+
+    .display_on2{
+        max-height: 10rem !important;
+        padding: 1rem !important;
     }
 
     .Read-more-btn{
