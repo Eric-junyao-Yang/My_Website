@@ -26,11 +26,13 @@ menu_wrapper.addEventListener("mouseover", event =>{
 })
 
 // None of yo business!
+const greeting_text = "❤️ HI CAMILLE ❤️"
+
 menu_wrapper.addEventListener("mouseleave", event =>{
     text_box.style.width = "0"
     if (seq == "1231313") {
         text_box.style.width = "25rem"
-        text_box_text.innerHTML = "❤️ HI CAMILLE ❤️"
+        text_box_text.innerHTML = greeting_text
     }
 })
 
@@ -369,3 +371,97 @@ function checkActivePaper(){
 if(window.innerWidth <= 1170){
     checkActivePaper()
 }
+
+
+//Science Section Accordion
+let firstpaper = document.querySelector(".pipeline-paper")
+let secondpaper = document.querySelector(".coretype-paper")
+
+let firstpaper_list = document.querySelectorAll(".cube__face p")
+// let secondpaper_list = document.querySelectorAll(".coretype-paper p")
+
+
+function toggle_accordion(toggle_target, siblings_list){
+    if (toggle_target.classList.contains("display_on")){
+        siblings_list.forEach(int => {
+            int.classList.remove("display_on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
+        })
+        seq = ""
+    } else {
+        siblings_list.forEach(int => {
+            int.classList.remove("display_on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar1").classList.remove("bar1-on")
+            int.previousElementSibling.querySelector(".toggle-icon .bar2").classList.remove("bar2-on")
+        })
+        toggle_target.classList.add("display_on")
+        toggle_target.previousElementSibling.querySelector(".toggle-icon .bar1").classList.add("bar1-on")
+        toggle_target.previousElementSibling.querySelector(".toggle-icon .bar2").classList.add("bar2-on")
+    }
+}
+
+function check_code(seq){
+    if (seq == "1231313"){
+        document.getElementById("manuscript1").querySelector("h2").innerHTML = greeting_text.concat(greeting_text)
+
+    }
+}
+
+firstpaper.addEventListener("mousedown", event => {
+    if(window.innerWidth <= 1170){
+    if ( document.querySelector(".pipeline-left-col .background").contains(event.target) ){
+        let toggle_target = document.querySelector(".pipeline-left-col .background p")
+        seq = seq.concat("1")
+        toggle_accordion(toggle_target, firstpaper_list)
+        check_code(seq)
+    }
+
+    if ( document.querySelector(".pipeline-left-col .problem").contains(event.target) ){
+        let toggle_target = document.querySelector(".pipeline-left-col .problem p")
+        seq = seq.concat("2")
+        toggle_accordion(toggle_target, firstpaper_list)
+        check_code(seq)
+    }
+
+    if ( document.querySelector(".pipeline-left-col .our-approach").contains(event.target) ){
+        if (event.target.classList.contains("Read-more-btn")){
+            window.open("https://observablehq.com/d/15a480dacc56a549", '_blank').focus();
+        } else{
+        let toggle_target = document.querySelector(".pipeline-left-col .our-approach p")
+        seq = seq.concat("3")
+        toggle_accordion(toggle_target, firstpaper_list)
+        check_code(seq)
+        }
+    }
+    
+    if ( document.querySelector(".pipeline-left-col .results").contains(event.target) ){
+        let toggle_target = document.querySelector(".pipeline-left-col .results p")
+        toggle_accordion(toggle_target, firstpaper_list)
+    }   
+}
+})
+
+secondpaper.addEventListener("mousedown", event => {
+    if(window.innerWidth <= 1170){
+    if ( document.querySelector(".coretype-left .background").contains(event.target) ){
+        let toggle_target = document.querySelector(".coretype-left .background p")
+        toggle_accordion(toggle_target, firstpaper_list)
+    }
+
+    if ( document.querySelector(".coretype-left .question").contains(event.target) ){
+        let toggle_target = document.querySelector(".coretype-left .question p")
+        toggle_accordion(toggle_target, firstpaper_list)
+    }
+
+    if ( document.querySelector(".coretype-left .approach").contains(event.target) ){
+        let toggle_target = document.querySelector(".coretype-left .approach p")
+        toggle_accordion(toggle_target, firstpaper_list)
+    }
+    
+    if ( document.querySelector(".coretype-left .findings").contains(event.target) ){
+        let toggle_target = document.querySelector(".coretype-left .findings p")
+        toggle_accordion(toggle_target, firstpaper_list)
+    }   
+}
+})

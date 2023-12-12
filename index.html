@@ -150,6 +150,7 @@
         <div class="Section-title">
             <h1>Science</h1>
         </div>
+        
         <div class="manuscripts-container">
             <div class="manuscript-icon" id = "manuscript-icon"></div>
             <div class="manuscript manuscript-transition" id = "manuscript1">
@@ -189,12 +190,12 @@
                             <div class="background">
                                 <h3>Background
                                     <div class="toggle-icon">
-                                        <div class="bar1"></div>
-                                        <div class="bar2"></div>
+                                        <div class="bar1 bar1-on"></div>
+                                        <div class="bar2 bar2-on"></div>
                                     </div>
                                 </h3>
 
-                                <p>Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
+                                <p class = "accordion display_on">Constitutive promoters (promoters that are on in all tissues at all times) are useful tools to introduce novel traits like insect resistance in the whole plant.</p>
                             </div>
                             <div class="problem">
                                 <h3>Problem
@@ -204,7 +205,7 @@
                                     </div>
                                 </h3>
 
-                                <p>There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
+                                <p class = "accordion">There aren't that many well characterized plant constitutive promoters available, and reusing promoter parts can lead to instability.</p>
                             </div>
                             <div class="our-approach">
                                 <h3>Our approach
@@ -214,7 +215,7 @@
                                     </div>
                                 </h3>
 
-                                <p>Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
+                                <p class = "accordion">Leveraging publicly available RNA-seq atlases for <i>A. thaliana</i> I identified the most stably expressing natural promoters available and cloned them for testing. </p> 
                                 
                                 <div class="Read-more">
                                     <button class="Read-more-btn" onclick="FlipCube('show-bottom')">Explore an interactive figure I made!</button>
@@ -228,7 +229,7 @@
                                     </div>
                                 </h3>
 
-                                <p>We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
+                                <p class = "accordion">We identified multiple promoters that expresses both in <i>N. benthamiana</i> and <i>A. thaliana</i> and several of which appears to be constitutively expressed in <i>A. thaliana</i>. We then used a few of these promoters to build logic NOR gates. </p>
                             </div>
                             <div class="Read-more">
                                 <a href="https://doi.org/10.1017/qpb.2023.10" target="_blank"><button class="Read-more-btn">Read More</button></a>
@@ -306,7 +307,7 @@
                                         <div class="bar2"></div>
                                     </div>
                                 </h3>
-                                <p>Main core promoter types in plants include TATA, Y-patch, and Coreless promoters. TATA promoters tend to be conditionally expressed while Coreless promoters tend to be constitutive.</p>
+                                <p class = "accordion">Main core promoter types in plants include TATA, Y-patch, and Coreless promoters. TATA promoters tend to be conditionally expressed while Coreless promoters tend to be constitutive.</p>
                             </div>
                             <div class="question">
                                 <h3>Question
@@ -315,7 +316,7 @@
                                         <div class="bar2"></div>
                                     </div>
                                 </h3>
-                                <p>Do changes in core promoter types correlate with changes in expression pattern? </p>
+                                <p class = "accordion">Do changes in core promoter types correlate with changes in expression pattern? </p>
                             </div>
                             <div class="approach">
                                 <h3>Approach
@@ -324,7 +325,7 @@
                                         <div class="bar2"></div>
                                     </div>
                                 </h3>
-                                <p>We leveraged RNA-seq atlases for 15 plant species to evaluate expression uniformity for each promoter, and identified orthologous genes across species (i.e. evolutionarily related). We can then track changes in expression uniformity and core promoter type of related promoters across evolution. </p>
+                                <p class = "accordion">We leveraged RNA-seq atlases for 15 plant species to evaluate expression uniformity for each promoter, and identified orthologous genes across species (i.e. evolutionarily related). We can then track changes in expression uniformity and core promoter type of related promoters across evolution. </p>
                             </div>
                             <div class="findings">
                                 <h3>Findings
@@ -333,7 +334,7 @@
                                         <div class="bar2"></div>
                                     </div>
                                 </h3>
-                                <p>We found unexpected trends for expression pattern for Coreless promoter in monocots (see animation). We also found that changes in core promoter types do no explain changes in expression pattern.</p>
+                                <p class = "accordion">We found unexpected trends for expression pattern for Coreless promoter in monocots (see animation). We also found that changes in core promoter types do no explain changes in expression pattern.</p>
                             </div>
                             <div class="Read-more">
                                 <a href="https://doi.org/10.1093/g3journal/jkad206" target="_blank"><button class="Read-more-btn">Read More</button></a>
