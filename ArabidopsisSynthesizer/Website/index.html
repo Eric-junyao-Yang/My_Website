@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Arabidopsis Synthesizer</title>
+    <meta name="theme-color" content="#f7f8fa">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <p class="site-eyebrow">Sonifying transcription</p>
+            <h1 class="site-title">Arabidopsis Synthesizer</h1>
+            <p class="site-lede">
+                Have you ever looked at transcriptional data and wondered what would happen if you plug the shape into a synthesizer?
+                Who haven't? </p>
+            <p class="side_lede">
+                Transcription measurements reflects gene activity, which can be affected by external or internal stimuli. 
+                <a href="https://doi.org/10.1074/jbc.RA120.013513">Yuchen Yang and colleagues</a>
+                measured the effect of day/night cycle on each of the roughly
+                27,000 genes in Arabidopsis thaliana. This interactive data "sonification" explores this experimental dataset using
+                <span class="sound-wave" aria-label="sound">
+                    <span class="sound-wave__letter" style="--i:0">s</span><span class="sound-wave__letter" style="--i:1">o</span><span class="sound-wave__letter" style="--i:2">u</span><span class="sound-wave__letter" style="--i:3">n</span><span class="sound-wave__letter" style="--i:4">d</span>
+                </span>.
+            </p>
+
+            <h3>FAQ: But why? Why would you do such a thing?</h3>
+            <p>Shushhhh... don't ruin this for me.</p>
+
+            <!-- <h4>The web app is split into to main sections:</h4>
+            <ol class="section-toc">
+                <li><a href="#SynthDiv">Arabidopsis synthesizer</a>: custom "instruments" derived directly from biological data.</li>
+                <li><a href="#SequencerDiv">Arabidopsis step sequencer</a>: explore gene oscillations using harmony.</li>
+            </ol>
+            <p>
+                Each section includes a foldable <strong>Science</strong> brief.
+                The step sequencer also has a foldable <strong>Music theory</strong> brief —
+                both start collapsed so you can open them when you want the background.
+            </p> -->
+        </div>
+    </header>
+
+    <!-- <nav class="section-nav" aria-label="Sections">
+        <span class="section-nav__brand" aria-hidden="true">Arabidopsis Piano</span>
+        <a href="#SynthDiv">Synthesizer</a>
+        <a href="#SequencerDiv">Sequencer</a>
+        <a href="#methods">Methods</a>
+    </nav> -->
+
+    <main id="main">
+        <section id="SynthDiv" class="app-section" aria-labelledby="synth-heading">
+            <!-- <header class="section-header">
+                <span class="section-header__index" aria-hidden="true">01</span>
+                <h2 id="synth-heading">Arabidopsis Synthesizer</h2>
+            </header> -->
+
+            <div class="fold-stack">
+                <details class="fold fold--science">
+                    <summary class="fold__summary">
+                        <span class="fold__badge">The Science</span>
+                        <span class="fold__title">How gene expression becomes an instrument</span>
+                        <span class="fold__chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="fold__body" id="Synth_Science_div">
+                        <div class="synth-science prose-block">
+                            <p>
+                                Arabidopsis thaliana is a plant that scientists love to study.
+                                It has a small genome and a fast reproduction cycle, but is still a complex flowering plant.
+                                These qualities makes it an ideal candidate for research.
+                            </p>
+                            <p>
+                                Arabidopsis contains around 27,000 genes. Many of these genes can modulate their activities based on stimuli.
+                                <a href="https://doi.org/10.1074/jbc.RA120.013513">Yuchen Yang and colleagues</a>
+                                wanted to study the effect of day/night cycle on gene activities.
+                            </p>
+                            <p>
+                                They grew Arabidopsis under <span style="color: #DDCC77">16hr light</span> and <span style="color: #332288">8hr dark</span> cycles, and measured activities of each of the 27,000 genes 
+                                every 3 hours over 2 days: totaling 16 data points per gene.
+                            </p>
+                            <p>
+                                Here is TOC1 (AT5G61380), a known circadian gene:
+                            </p>
+                            <div id="Synth_Science_data_plot" class="synth-science__plot"></div>
+                            <p>
+                                We can “hear” the data if we treat the resulting plot as an audio waveform.
+                            </p>
+                            <hr>
+                            <p>
+                                An audio waveform is a representation of sound:
+                            </p>
+                            <div id="Synth_Science_audio_waveforms" class="synth-science__waves">
+                                <figure id="audio_waveform_amp" class="synth-science__wave">
+                                    <div id="amp_plot" class="synth-science__wave-plot"></div>
+                                    <figcaption>Amplitude controls volume.</figcaption>
+                                </figure>
+                                <figure id="audio_waveform_freq" class="synth-science__wave">
+                                    <div id="freq_plot" class="synth-science__wave-plot"></div>
+                                    <figcaption>Frequency (how fast the waveform repeats) controls pitch.</figcaption>
+                                </figure>
+                                <figure id="audio_waveform_shape" class="synth-science__wave">
+                                    <div id="shape_plot" class="synth-science__wave-plot"></div>
+                                    <figcaption>Shape of the waveform controls timbre. Think of each unique shape as its own instrument!</figcaption>
+                                </figure>
+                            </div>
+                            <p>
+                                For the synthesizer below, amplitude is locked and frequency is mapped to the keyboard, so you can focus on waveform shape.
+                                That gives about 27,000 “instruments” derived from the Arabidopsis genome
+                            </p>
+                            <p>
+                                Use the synthesizer to explore the Arabidopsis transcriptional soundscape.
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Sticky range: jukebox sticks from waveform top through UMAP bottoms -->
+            <div class="synth-sticky-region">
+                <div class="synth-sticky-dock">
+                <aside id="midi_container" aria-label="Arabidopsis Jukebox">
+                    <div id="midi_panel">
+                        <button
+                            type="button"
+                            id="midi_handle"
+                            aria-expanded="false"
+                            aria-controls="midi_content"
+                            title="Show or hide Jukebox"
+                        >
+                            <span id="midi_handle_text">Arabidopsis Jukebox</span>
+                        </button>
+                        <div id="midi_content">
+                            <div id="midi"
+                                class="help-panel panel panel--midi"
+                                data-help-text='By assigning a different wavefrom to each MIDI track, you can play a whole song with sounds derived from the Arabidopsis plant!
+                                
+                                You can load sounds by typing in the Gene ID or by loading it via the "Assign" button below the synth.'>
+
+                                <div class="panel__header midi-header">
+                                    <div class="midi-header__titles">
+                                        <h3 class="panel__title">Arabidopsis Jukebox</h3>
+                                        <p class="midi-header__sub">Assign your favorate genes to individual tracks to hear them play together.</p>
+                                    </div>
+                                </div>
+
+                                <div class="midi-transport" role="group" aria-label="MIDI playback">
+                                    <button type="button" id="midi_play" class="btn btn--primary midi-transport__play">play</button>
+                                    <input
+                                        id="midi_progress_bar"
+                                        class="midi-transport__scrubber"
+                                        type="range"
+                                        min="0"
+                                        max="0"
+                                        step="any"
+                                        value="0"
+                                        aria-label="Song position">
+                                    <div class="midi-transport__time">
+                                        <span id="midi_time_display">00:00</span><span id="midi_total_time"> / 00:00</span>
+                                    </div>
+                                </div>
+
+                                <p class="midi-hint" id="midi_load_hint">
+                                    Assign a gene to each track to load its sound. Unloaded tracks stay silent.
+                                </p>
+
+                                <div class="midi-tracks">
+                                    <article class="midi-track is-unloaded" data-track-id="vocal" data-track-index="0">
+                                        <div class="midi-track__side">
+                                            <div class="midi-track__meta">
+                                                <span class="midi-symbol" aria-hidden="true">🎤</span>
+                                                <span class="midi-track__name">Vocal</span>
+                                                <span class="midi-track__badge" data-midi-badge>No sound</span>
+                                                <p id="midi-vocal-gene-name" class="midi-gene-name" data-midi-gene></p>
+                                            </div>
+                                            <div id="midi-vocal-searchbar" class="gene-search">
+                                                <label class="gene-search-label" for="midi-vocal-search">Assign gene</label>
+                                                <div class="gene-search-field">
+                                                    <input
+                                                        id="midi-vocal-search"
+                                                        type="search"
+                                                        placeholder="e.g. AT5G61380"
+                                                        autocomplete="off"
+                                                        spellcheck="false"
+                                                    >
+                                                    <ul id="midi-vocal-results" class="gene-search-results" hidden></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="midi-vocal-display" class="midi-track-display" role="img" aria-label="Vocal note roll"></div>
+                                    </article>
+
+                                    <article class="midi-track is-unloaded" data-track-id="synth1" data-track-index="1">
+                                        <div class="midi-track__side">
+                                            <div class="midi-track__meta">
+                                                <span class="midi-symbol" aria-hidden="true">🎹</span>
+                                                <span class="midi-track__name">Synth1</span>
+                                                <span class="midi-track__badge" data-midi-badge>No sound</span>
+                                                <p id="midi-synth1-gene-name" class="midi-gene-name" data-midi-gene></p>
+                                            </div>
+                                            <div id="midi-synth1-searchbar" class="gene-search">
+                                                <label class="gene-search-label" for="midi-synth1-search">Assign gene</label>
+                                                <div class="gene-search-field">
+                                                    <input
+                                                        id="midi-synth1-search"
+                                                        type="search"
+                                                        placeholder="e.g. AT5G61380"
+                                                        autocomplete="off"
+                                                        spellcheck="false"
+                                                    >
+                                                    <ul id="midi-synth1-results" class="gene-search-results" hidden></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="midi-synth1-display" class="midi-track-display" role="img" aria-label="Synth1 note roll"></div>
+                                    </article>
+
+                                    <article class="midi-track is-unloaded" data-track-id="synth2" data-track-index="2">
+                                        <div class="midi-track__side">
+                                            <div class="midi-track__meta">
+                                                <span class="midi-symbol" aria-hidden="true">🎹</span>
+                                                <span class="midi-track__name">Synth2</span>
+                                                <span class="midi-track__badge" data-midi-badge>No sound</span>
+                                                <p id="midi-synth2-gene-name" class="midi-gene-name" data-midi-gene></p>
+                                            </div>
+                                            <div id="midi-synth2-searchbar" class="gene-search">
+                                                <label class="gene-search-label" for="midi-synth2-search">Assign gene</label>
+                                                <div class="gene-search-field">
+                                                    <input
+                                                        id="midi-synth2-search"
+                                                        type="search"
+                                                        placeholder="e.g. AT5G61380"
+                                                        autocomplete="off"
+                                                        spellcheck="false"
+                                                    >
+                                                    <ul id="midi-synth2-results" class="gene-search-results" hidden></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="midi-synth2-display" class="midi-track-display" role="img" aria-label="Synth2 note roll"></div>
+                                    </article>
+
+                                    <article class="midi-track is-unloaded" data-track-id="bass" data-track-index="3">
+                                        <div class="midi-track__side">
+                                            <div class="midi-track__meta">
+                                                <span class="midi-symbol" aria-hidden="true">𝄢</span>
+                                                <span class="midi-track__name">Bass</span>
+                                                <span class="midi-track__badge" data-midi-badge>No sound</span>
+                                                <p id="midi-bass-gene-name" class="midi-gene-name" data-midi-gene></p>
+                                            </div>
+                                            <div id="midi-bass-searchbar" class="gene-search">
+                                                <label class="gene-search-label" for="midi-bass-search">Assign gene</label>
+                                                <div class="gene-search-field">
+                                                    <input
+                                                        id="midi-bass-search"
+                                                        type="search"
+                                                        placeholder="e.g. AT5G61380"
+                                                        autocomplete="off"
+                                                        spellcheck="false"
+                                                    >
+                                                    <ul id="midi-bass-results" class="gene-search-results" hidden></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="midi-bass-display" class="midi-track-display" role="img" aria-label="Bass note roll"></div>
+                                    </article>
+
+                                    <article class="midi-track is-unloaded" data-track-id="brass" data-track-index="4">
+                                        <div class="midi-track__side">
+                                            <div class="midi-track__meta">
+                                                <span class="midi-symbol" aria-hidden="true">🎺</span>
+                                                <span class="midi-track__name">Brass</span>
+                                                <span class="midi-track__badge" data-midi-badge>No sound</span>
+                                                <p id="midi-brass-gene-name" class="midi-gene-name" data-midi-gene></p>
+                                            </div>
+                                            <div id="midi-brass-searchbar" class="gene-search">
+                                                <label class="gene-search-label" for="midi-brass-search">Assign gene</label>
+                                                <div class="gene-search-field">
+                                                    <input
+                                                        id="midi-brass-search"
+                                                        type="search"
+                                                        placeholder="e.g. AT5G61380"
+                                                        autocomplete="off"
+                                                        spellcheck="false"
+                                                    >
+                                                    <ul id="midi-brass-results" class="gene-search-results" hidden></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="midi-brass-display" class="midi-track-display" role="img" aria-label="Brass note roll"></div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                </div>
+                <div id="Synth_Waveform_container" class="panel panel--waveform">
+                <div id="Synth_Waveform_div"
+                    class="help-panel toolbar"
+                    data-help-text="The waveform you see will be the waveform played when you click on the virtual keyboard or play with your actual keyboard (it supports polyphony!).
+                    
+                    You can modify the waveforms by clicking and dragging through the waveform, or load in experimental data by searching for a Gene ID or clicking one of the points from the UMAPs below."
+                    >
+                    <div id="Synth_interaction_bar">
+                        <div id="Synth_Searchbar" class="gene-search">
+                            <label class="gene-search-label" for="synth-search">Find gene</label>
+                            <div class="gene-search-field">
+                                <input
+                                    id="synth-search"
+                                    type="search"
+                                    placeholder="e.g. AT5G61380"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                                <ul id="synth-results" class="gene-search-results" hidden></ul>
+                            </div>
+                        </div>
+                        <div id="Waveform_Button_div">
+
+                            <div class="btn-group" role="group" aria-label="Waveform presets">
+                                <button type="button" id="reset" class="btn">reset</button>
+                                <button type="button" id="sine" class="btn">sine</button>
+                                <button type="button" id="square" class="btn">square</button>
+                                <button type="button" id="saw" class="btn">saw</button>
+                                <button type="button" id="triangle" class="btn">triangle</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="synth_waveform_name" class="synth-waveform-label" aria-live="polite">
+                        <span class="synth-waveform-label__eyebrow">Waveform</span>
+                        <span class="synth-waveform-label__text">Custom Waveform</span>
+                    </div>
+                    <div class="canvas-shell">
+                        <canvas id="Synth_Waveform" width="1000" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div id="Synth_Keyboard_div" class="keyboard-shell" aria-label="Virtual keyboard"></div>
+
+                <div
+                    id="pushSound"
+                    class="synth-to-jukebox help-panel is-disabled"
+                    aria-disabled="true"
+                    data-help-text="Found a sound you like? You can assign it to a Jukebox track. Only experimental data allowed, not hand-drawn waveforms."
+                >
+                    <div class="synth-to-jukebox__copy">
+                        <span class="synth-to-jukebox__title">Send to Jukebox</span>
+                        <p class="synth-to-jukebox__hint">
+                            Assign
+                            <span id="synth_to_midi_gene_id" class="synth-to-jukebox__gene">         </span>
+                            to a track
+                        </p>
+                    </div>
+                    <span id="synth_to_midi_success" class="synth-to-jukebox__status" hidden role="status"></span>
+                    <div class="synth-to-jukebox__controls">
+                        <label class="synth-to-jukebox__field-label" for="synth_to_midi_track_select">Track</label>
+                        <select id="synth_to_midi_track_select" class="synth-to-jukebox__select" disabled>
+                            <option value="0">Vocal</option>
+                            <option value="1">Synth1</option>
+                            <option value="2">Synth2</option>
+                            <option value="3">Bass</option>
+                            <option value="4">Brass</option>
+                        </select>
+                        <button id="send_waveform_to_midi" type="button" class="btn btn--primary" disabled>Assign</button>
+                    </div>
+                </div>
+                </div>
+
+                <div id="Synth_Plots_div" class="plot-row">
+                    <div id="read_counts"
+                         class="help-panel plot-frame"
+                         data-help-text="UMAP representation of experimental data: 
+                         Points closer together have similar expression pattern over the experimental period.
+                         
+                         Each point is a gene. You can zoom, pan, and select genes to update the waveform above. Gene highlighted is synced between the two plots. Double click to reset graph."></div>
+                    <div id="filter_slider"
+                         class="help-panel plot-frame plot-frame--narrow"
+                         data-help-text="This slider controls cutoffs for average gene expression.
+
+                         You can adjust the top and bottom slider to set thresholds, and drag the threshold regions around. Blue lines represents the quantiles. Double click to reset."></div>
+                    <div id="fft"
+                         class="help-panel plot-frame"
+                         data-help-text="UMAP representation of Fast Fourier fransformed
+                         'waveform': Points closer together are similar in sound quality.
+                         
+                         Each point is a gene. You can zoom, pan, and select genes to update the waveform above. Gene highlighted is synced between the two plots. Double click to reset graph."></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="SequencerDiv" class="app-section" aria-labelledby="seq-heading">
+            <header class="section-header">
+                <span class="section-header__index" aria-hidden="true">02</span>
+                <h2 id="seq-heading">Arabidopsis Step Sequencer</h2>
+            </header>
+
+            <div id="StepSeq_Intro" class="fold-stack">
+                <details class="fold fold--science">
+                    <summary class="fold__summary">
+                        <span class="fold__badge">The Science</span>
+                        <span class="fold__title">Investigating naturally oscillating genes</span>
+                        <span class="fold__chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="fold__body prose-block">
+                        <p>
+                            By changing the frequency of the waveform to match the keyboard, the Synthesizer above actually throws away important experimental data.
+                            A subset of genes are naturally oscillating, and we can attempt to respect their innate frequency.
+                        </p>
+                        <p>
+                            Here are two genes AT1G13320 (PP2AA3) and AT5G61380 (TOC1):
+                        </p>
+                        <div id="Gene_Plots" class="plot-frame plot-frame--gene"></div>
+                        <p>
+                            TOC1 is a known circadian gene and we can see the red line shows clear oscillating behavior that builds up during light and falls in the dark.
+                            PP2AA3 on the other hand is a housekeeping gene that supports general cellular function. Compared to TOC1, PP2AA3 does not show a prominant inherit rhythm.
+                        </p>
+                        <p>
+                            We can identify which genes are likely naturally oscillating and extract their oscillating frequency.
+                            The freqencies will be on the scale of a few cycles per day, but we can map them to a keyboard by
+                            scaling everything up into the audible range.
+                            This way, when you hear difference in pitches, it would suggest real biological difference in oscillation!
+                        </p>
+                        <p>
+                            Instead of assigning a single waveform to the oscillating genes, I used Gaussian Process (GP) to model the experimental data to capture uncertanties in the shape of the waveform.
+                        </p>
+                        <p> 
+                            Here is the TOC1 gene modeled using GP:
+                        </p>
+                        <div id="Gene_GPPlots" class="plot-frame plot-frame--gene"></div>
+                        <p>
+                            The violet line is the average waveform for the gene. The (color?) band represents the 95% confidence interval in the waveform. The 10 (color?) lines are the 10 samples randomly pulled from the GP model.
+                        </p>
+                        <p> How confident can we be that:</p>
+                        <p>
+                            The gene is really oscillating: 
+                            q-value is the expected fraction of false positives for all genes called at a threshold. 0.05 (5%) or less is a good starting point. Relaxing this threshold will give you more sounds to play with, but just know that also means more false positives.
+                            The period is accurate: 
+                            95% confidence interval for detected period is reported in the plot and as a filter.
+                            The shape of the waveform is accurate:
+                            mean(posterior std) / std(posterior mean) tells us the average std in sampled waves relative to the oscillation size. Smaller the value, tighter the spread.
+                        </p>
+                        <p> The sound you hear when you play the StepSequencer below will be the 10 sampled waveforms morphing into each other at a rate proportional to the q-value. 
+                            This way, the overall wobble of the sound (if you pay close attention) maps to overall confidence we have in both the period (morph rage) and waveform (10 samples).
+                        </p>
+                    </div>
+                </details>
+
+                <details class="fold fold--theory">
+                    <summary class="fold__summary">
+                        <span class="fold__badge">Music theory</span>
+                        <span class="fold__title">Harmony as a lens on gene periods</span>
+                        <span class="fold__chevron" aria-hidden="true"></span>
+                    </summary>
+                    <div class="fold__body prose-block">
+                        <p>
+                            Musical harmony turns out to be a surprisingly interesting way to explore relationships between oscillating genes.
+                            Human ears are really good at picking out certain mathmatical relationships between frequencies.
+                            The Pythagoreans supposedly discovered that small whole number ratio relationships between freqencies sounds
+                            pleasant to our ears. For example, arguably the most harmonic note-pairing (other than the note and itself, which is a 1:1 ratio)
+                            is a note and its octave
+                            (something that vibrates twice as fast). This gives a 1:2 ratio and that's as small as it gets!
+                            The idea of whole number ratios is based in physics. For vibrating air columns (vocal cord included) or strings, vibration of a
+                            particular frequency (f) creates a stack of overtones at multiples of the frequency: 2f, 3f, 4f, ... ,  etc.
+                            When two notes are played together, if their overtones overlap, we hear a consonent smooth blend. But if the overtones are slightly
+                            off, we hear "beating", which is called dissonance. To learn more: <a href="https://aatishb.com/dissonance/">Theory of Dissonance</a>
+                            Simpler ratios allow for more overlap of these overtones.
+
+                            Just intonnation  attempts to construct musical scales by only using a set of small whole number ratios.
+                            Pythagorean tuning, for example, attempts to traverse the scale with only the two smallest whole number ratios:
+                            perfect fifth (3:2) and the octave (2:1). In tuning classification it is considered a 3-limit scale (largest prime number is 3).
+                            Unfortunately the math doesn't quite work out and results in some ratios that are
+                            far from "small". E.g. the Pythagorean major third (which in modern days is an important harmony) has a
+                            ratio of 81:64 instead of the much more pleasant sounding 5:4.
+                            There are other attempts in just intonnation, for example, if we also allow the use of Perfect Fourth (4:3) and (5:4) Major third in the scale construction, it is considered a 5-limit scale.
+                        </p>
+                        <p>
+                            However, all just intonnation attempts suffers from the same challenges: No fixed sets of notes can make every pair perfectly simple, fundementally
+                            because ratios built from prime factors (2,3,5) never lines up exactly. So by lining up certain notes just right, the other notes pairings will sound
+                            out of tune. Modern piano uses "12-tone equal temperment" tuning that distributes these compromises equally across all notes, which makes everything note pairing very slightly out of tune,
+                            but allows all pairings to some relatively pleasant, rather than a few pairings sounding perfect at the cost of all others.
+                            You can learn more about <a href="https://www.asa3.org/ASA/education/teach/harmony-cr.htm">Mathmatics of Musical Harmony</a>.
+                        </p>
+                        <p>
+                            The visualization below highlights the following simple ratio relationships for each gene:
+                            Octave (1:2), Perfect Fifth (3:2), Perfect Fourth (4:3), Major Sixth (5:3), Major Third (5:4), Minor Third (6:5)
+                        </p>
+
+                        <h3>Caveats</h3>
+                        <p>
+                            The original hope of the Step Sequencer is to identify genes with a wide variety of oscillation frequencies
+                            so that they can be translated to a variety of unique musical pitches. Moreover, I was hoping I could identify genes
+                            with frequencies of small number ratios to one another (e.g. one gene completes 2 cycles while another completes 3), as
+                            they have harmonic implications as explained in the music theory section. However, as the results shown here, once we
+                            restrict the q-value for oscillation detection to resonable values of less than 0.05, the vast majority of oscillating genes
+                            are entrained to a 24hr period, with a much smaller fraction oscillating around 12hr.
+
+                            There are only 6 genes siting far enough away from the 12 and 24 hour period bands, and are potentially interesting from a harmonics perspective: 
+                            <span>AT4G17680</span> and <span>AT5G11030</span> has a period of
+                            around 16hrs (2/3 ratio to 24hrs). <span>AT5G60160</span>, <span>AT5G22110</span>, <span>AT3G50845</span> 
+                            have periods around 19hrs (~3/2 ratio to 12hrs). <span>AT1G32150</span> has a period of ~8hrs (2/3 ratio to 12 hrs).
+                            However, given the rarity and the q-value threshold, their actual biological significance should be taken with a grain of salt.
+
+                            At the very least, it is a fun way to explore this dataset and you can also use it to make some music!
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <div id="StepSequencerContainer" class="seq-workspace">
+                <div id="StepSeqTutorialMask" class="tutorial-mask"></div>
+                <div id="StepSeqTooltip" class="tutorial-tooltip">
+                    <p class="tutorial-tooltip__body">Content of the tutorial here...</p>
+                    <div class="tutorial-tooltip__footer">
+                        <span class="tutorial-tooltip__count"></span>
+                        <div class="tutorial-tooltip__actions">
+                            <button type="button" id="StepSeqTooltipPrev" class="btn">Prev</button>
+                            <button type="button" id="StepSeqTooltipNext" class="btn btn--primary">Next</button>
+                            <button type="button" id="StepSeqTooltipClose" class="btn btn--ghost" aria-label="Close tutorial">✕</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="StepSeqMain"
+                    class="help-panel plot-frame plot-frame--seq-main"
+                    data-tutorial-region="StepSeqMain"
+                    data-help-text="Each point here is a potentially oscillating gene. The nautral
+                    oscillating frequency of the gene is scaled up and mapped to the y-axis, and the x-axis
+                     represents the phase the wavefrom peaks. Left-click to select a gene. Selected genes are
+                     shown in a list on the right. Multiple genes can be selected at once. Only one gene can
+                     be 'in focus'. click on a gene to cancel and anywhere else to reset zoom. Scroll to zoom. Once a gene is selected, genes with
+                     potential small number relationships with the selelcted gene are highlighted. The intensity of the
+                     gene cooresponds to how much the confidence interval of the selected gene and the target gene overlaps.
+                      The confidence interval of the selected gene is shown as colored bands while CI of the targets are shown as
+                      bars. Click on any of the bands to lock in. This allows easier selelction of target genes. Click outside
+                      the CI bands to cancel. You can drag and drop genes to an equivalent phase when possible.
+                      The sound triggered when you press play is from 10 samples pulled from the Gaussian Process
+                      Modeling. The quality of the sound and the speed at which the waveform morphs captures
+                      a sense of confidence in the shape of the wave. Higher variation means less confidence."></div>
+
+                <div id="StepSeqControls" class="panel panel--seq-controls" data-tutorial-region="StepSeqControls">
+                    <div id="StepSeqControlButtons" class="help-panel toolbar"
+                    data-help-text="Use these controls to trigger the selected genes.">
+                    <button type="button" id="StepSeqPlayPause" class="btn btn--primary">Play</button>
+                    <button type="button" id="StepSeqStop" class="btn">Stop</button>
+                    <button type="button" id="StepSeqReset" class="btn btn--ghost">Reset</button>
+                    </div>
+                </div>
+
+                <div id="StepSeqViolin" class="help-panel panel panel--filters"
+                        data-help-text="Drag the ends of the violin plots to filter by each metric.
+                        mean TPM corresponds to average gene expression. q-value is the % chance a
+                        non-oscillating gene might slip through the analysis (5% or lower is typical but
+                        I included up to 20% for more genes to play with). relative std captures the
+                        confidence of the fitted waveform.">
+                    <div id="violin-logPeriodSD" class="violin-slot"></div>
+                    <div id="violin-qVal" class="violin-slot"></div>
+                    <div id="violin-Std" class="violin-slot"></div>
+                </div>
+
+                <div id="StepSeqGPDisplay" class="panel panel--seq-gp">
+                    <div id="StepSeqGPSearchBar" class="gene-search">
+                        <label class="gene-search-label" for="StepSeqGPSearch">Find gene</label>
+                        <div class="gene-search-field">
+                            <input
+                                id="StepSeqGPSearch"
+                                type="search"
+                                placeholder="e.g. AT5G61380"
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+                            <ul id="StepSeqGPResults" class="gene-search-results" hidden></ul>
+                        </div>
+                    </div>
+
+                    <div id="StepSeqGPSelectedGenes" class="help-panel gene-tag-tray"
+                        data-help-text="Here is the list of genes you selelcted. You can more precicely
+                        select genes to be 'in focus' or remove here."></div>
+
+                    <div id="StepSeqGPViewToggle" class="capsule-toggle" role="group"
+                        aria-label="Waveform time axis">
+                        <button type="button" id="StepSeqGPViewPhase" class="btn"
+                            aria-pressed="true" title="Phase-wrapped: one detected period">Phase</button>
+                        <button type="button" id="StepSeqGPViewFull" class="btn"
+                            aria-pressed="false" title="Full 48-hour experimental period">48 h</button>
+                    </div>
+
+                    <div id="StepSeqGPPlotandMeta" class="gp-plot-and-meta">
+                        <div id="StepSeqGPPlot" class="help-panel plot-frame plot-frame--seq-wave"
+                        data-help-text="Here is the waveform modeled using Gaussian Process. 10 samples drawn
+                        from the model are displayed here. These will be the collection of waveforms you hear.
+                        Use the Phase / 48 h toggle to switch between one period (phase-wrapped) and the full
+                        experimental window."></div>
+                        <div id="StepSeqGPMeta" class="help-panel gp-meta"
+                            data-help-text="Detected period (with 95% CI), phase, q-value, and relative std for the focused gene.">
+                            <dl class="gp-meta__list">
+                                <div class="gp-meta__row">
+                                    <dt>Gene ID</dt>
+                                    <dd id="StepSeqGPMeta-gene" class="gp-meta__value gp-meta__value--mono">—</dd>
+                                </div>
+                                <div class="gp-meta__row gp-meta__row--period">
+                                    <dt>Period <span class="gp-meta__unit">(h)</span></dt>
+                                    <dd class="gp-meta__period">
+                                        <div id="StepSeqGPMeta-period-ci" class="period-ci"
+                                            role="img"
+                                            aria-label="Period 95% confidence interval">
+                                            <div class="period-ci__rail"></div>
+                                            <div class="period-ci__node" data-role="low">
+                                                <span class="period-ci__dot"></span>
+                                                <span id="StepSeqGPMeta-period-low" class="period-ci__val">—</span>
+                                            </div>
+                                            <div class="period-ci__node period-ci__node--mid" data-role="period">
+                                                <span class="period-ci__dot"></span>
+                                                <span id="StepSeqGPMeta-period" class="period-ci__val">—</span>
+                                            </div>
+                                            <div class="period-ci__node" data-role="high">
+                                                <span class="period-ci__dot"></span>
+                                                <span id="StepSeqGPMeta-period-high" class="period-ci__val">—</span>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </div>
+                                <div class="gp-meta__row">
+                                    <dt>Log of period std </dt>
+                                    <dd id="StepSeqGPMeta-logPeriodSD" class="gp-meta__value">—</dd>
+                                </div>
+                                <div class="gp-meta__row">
+                                    <dt>Phase <span class="gp-meta__unit">(h)</span></dt>
+                                    <dd id="StepSeqGPMeta-phase" class="gp-meta__value">—</dd>
+                                </div>
+                                <div class="gp-meta__row">
+                                    <dt>qval</dt>
+                                    <dd id="StepSeqGPMeta-qval" class="gp-meta__value">—</dd>
+                                </div>
+                                <div class="gp-meta__row">
+                                    <dt>relative std</dt>
+                                    <dd id="StepSeqGPMeta-relstd" class="gp-meta__value">—</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> -->
+
+        <div id="help-popup" role="dialog" aria-live="polite"></div>
+
+        <section id="methods" class="app-section app-section--methods" aria-labelledby="methods-heading">
+            <header class="section-header">
+                <span class="section-header__index" aria-hidden="true">03</span>
+                <h2 id="methods-heading">Methods</h2>
+            </header>
+
+            <div class="prose-block methods-grid">
+                <div>
+                    <h3>Processing Raw Reads</h3>
+                    <p>
+                        The Diurnal Dataset from
+                        <a href="https://www.jbc.org/article/S0021-9258(17)49454-3/fulltext"> Yuchen Yang and colleagues </a>
+                        is downloaded from
+                        <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE137732"> GSE137732 </a> .
+                        These are bulk RNAseq dataset from Arabidopsis grown under long-day conditions [16hr light / 8hr dark]
+                    </p>
+                    <p>
+                        The paired end reads were processed with <a href="https://github.com/OpenGene/fastp">fastp</a> with "--detect_adapter_for_pe".
+                        Results before and after trimming were checked using <a href="https://github.com/MultiQC/MultiQC">Multiqc</a>.
+                        Fragments were mapped to TAIR10 transcriptome and transcripts were counted using <a href="https://salmon.readthedocs.io/en/latest/index.html">salmon</a> using the genome as decoy.
+                        <h5>DESeq2: adjusting for difference in sequencing depth and RNA composition</h5>
+                        DESeq2 was used to normalize the samples after using tximport to summarize transcript level data.
+                        Normalized counts is used for sound wave generation: FFT analysis and as input waveform for the synth.
+                        Genes with less than 5 average DESeq2 normalized counts across all samples were dropped.
+                        <h5>TPM: adjusting for difference in gene lengths</h5>
+                        Log10 of mean TPM on DESeq2 normalized counts were kept for downstream between gene comparisons.
+                        <h5>VST: adjusting for heteroskedasticity</h5>
+                        VST transformation was performed and the output was used for analysis of the biological signal: UMAP, LombScargle and Gaussian Process modeling.
+                        
+                        
+                    </p>
+
+                    <h3>UMAPs</h3>
+                    <h4>Counts</h4>
+                    <p>
+                        VST data for each gene is z-score normalized across the 16 timepoints
+                        before running UMAP with n_neighbors = 10, min_dist = 0.25, and metric = "cosine". Distance between points is (1 - Pearson correlation).
+                    </p>
+                    <h4>FFT</h4>
+                    <p>
+                        Each gene's normalized counts were interpolated using Catmull-Rom, mean centered, and max-absolute scaled to between -1 and 1.
+                        FFT is performed on each waveform and the resulting magnitude of each detected frequencies within a gene are converted to dB relative to the
+                        strongest frequency and floored at -40dB by setting any frequency 100x weaker than the strongest frequency to 0.
+                        All dB values were shifted up by 40dB so the data ranges from 0~40dB.
+                        The resulting array is used to generate the UMAP with n_neighbors = 10, min_dist = 0.25, and metric = "euclidean"
+                    </p>
+
+                    <!-- <h3>Oscillating Gene Detection</h3>
+                    <p>
+                        Lomb Scargle algorithm from astropy was used to detect inherit rythums using VST from all genes with a search grid of
+                         minimum_frequency = 1/32; maximum_frequency = 1/6; samples_per_peak = 30. 
+                         Maxium of 1/6 is due to the Nyquist freqency. And minimal of 1/32 allows at least 1.5 cycles to be measured within the 48 hour experiment.
+                        Taking the False Alarm Probabilities (FAP) and accounting for multiple-testing with Benjamini/Hochberg, the resulting q-value is threshold to 0.2 for data export.
+                        Uncertanties in the detected period is determined using boot strapping. Assuming the uncertanties in detection is due to noise in the data,
+                        the residual for each data point is randomly shuffled with replacement among all data points for a gene. The process is repeated 500 times,
+                        and the resulting spread of detected periods is used to determine the 95% confidence interval.
+                    </p>
+
+                    <h3>Gaussian Process Modeling</h3>
+                    <p>
+                        To capture a sense of confidence of the predicted waveform, the Gaussian Process was used to model the oscillating genes from VST data.
+                        Gpflow was used to fit the GP model with a fixed period from Lomb Scargle and a Periodic SquaredExponential base kernel.
+                        After fitting multiple low qval genes with different starting length scales without a prior, length scale was found to be around 0.4 ~ 0.5.
+                        0.4 was chosen to be the inital length scale and prior.
+                        Variance is set to the square of std, and mean is set to the mean of all measurements for the gene.
+
+                        Multiple QC metrics are derived but as they mostly correlate well with a spearman correlction of 0.7~0.8, only the relative std is kept as a
+                        metric for fit quality.
+                    </p> -->
+                </div>
+
+                <div class="limitations">
+                    <h3>Limitations</h3>
+                    <ul>
+                        <li>Expression strength is currently not mapped to anything sonically, and is only used as a filter.</li>
+                        <li>16 points is limiting in terms of possible sounds and harmonics.</li>
+                        <!-- <li>Assumes gene expression loops around after 48 hours (indefinitely)</li>
+                        <li>Bootstrapping method for confidence interval of period detection assumes the underlying model is sinusoidal and the residuals are independent of each other.
+                            Experimenting with synthetic data suggest instability in cycle period over experimental time will cause the predicted period to drift.
+                        </li>
+                        <li>Uncertanties in period estimation isn't reflected in the Gaussian Process modeling.</li> -->
+                        <li>The same smoothing function (Catmull-Rom) used on the waveform makes it so they all sound sonically in the same family.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
+
+<!-- To do: metion that qval matches confidence of GP reasonably well,
+ so overall sense of confidence of the waveform is captured by both the variation in sound
+ (GP confidence) as well as how fast the sound morphs (qval in how confidence we are in periodicity) -->
+
+ <!-- https://www.sfu.ca/sonic-studio-webdav/handbook/Just_Tuning.html Resource, cite! -->

@@ -1,2 +1,3 @@
-# My Website
-My personal website built using HTML, CSS, and Javascript.
+# Eric J. Y. Yang — personal site
+
+This repo is synced to ericyang.phd
