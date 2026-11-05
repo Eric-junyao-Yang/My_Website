@@ -61,8 +61,8 @@ for (let i = 0; i < count_arr.length; i++) {
     fft_umap_arr[i].log_TPM = log_TPM
 }
 
-const [metaValues, osc_perGene_meta, shared, osc_perGene_mu, osc_perGene_std] =
-    await load_waveforms(["./dat/waveforms.part0.bin", "./dat/waveforms.part1.bin"], "./dat/bin_meta.json")
+// const [metaValues, osc_perGene_meta, shared, osc_perGene_mu, osc_perGene_std] =
+//     await load_waveforms(["./dat/waveforms.part0.bin", "./dat/waveforms.part1.bin"], "./dat/bin_meta.json")
 const normalized_counts_lookup = new Map(count_arr.map((val) => [val.GeneID, val]))
 const VST_lookup = new Map(VST_arr.map((val) => [val.GeneID, val]))
 
@@ -171,7 +171,6 @@ jukeboxHandle?.addEventListener("click", () => {
     jukeboxHandle.setAttribute("aria-expanded", open ? "true" : "false")
 })
 
-console.log(osc_perGene_meta)
 const MIDI_TRACKS = [
     { id: "vocal", label: "Vocal", trackIndex: 0 },
     { id: "synth1", label: "Synth1", trackIndex: 1 },
