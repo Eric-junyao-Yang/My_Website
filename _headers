@@ -1,0 +1,5 @@
+# Cloudflare Pages response headers.
+# The Synthesizer's audio worklet shares waveform data through a SharedArrayBuffer,
+/ArabidopsisSynthesizer/Website/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp

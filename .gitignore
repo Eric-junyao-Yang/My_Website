@@ -1,0 +1,3 @@
+# For first pass, skip the waveforms
+# Will later regenerate for only circadian genes
+ArabidopsisSynthesizer/Website/dat/waveforms.bin
