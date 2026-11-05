@@ -1,24 +1,24 @@
-import { Synth_Waveform } from "/src/synth_waveform.js"
-import { plotUMAP } from "/src/plotUMAP.js"
-import { load_waveforms, bin_to_array } from "/src/binHelper.js"
-import { plotViolin } from "/src/plotViolin.js"
-import { plotStepSeqMain } from "/src/step_sequencer.js"
-import { plotGPWave } from "/src/GPplot.js"
-import { mountSynthScienceDiv } from "/src/synthScienceDiv.js"
-import { plotGene } from "/src/gene_plots.js"
-import { setupHelpPopUps } from "/src/helpPopup.js"
-import { setupVirtualPiano, assign_keyboard_keys } from "/src/virtualPiano.js"
-import { searchbar } from "/src/searchbar.js"
-import { initGlobalAudio } from "/src/globalVolumeControl.js"
+import { Synth_Waveform } from "./synth_waveform.js"
+import { plotUMAP } from "./plotUMAP.js"
+import { load_waveforms, bin_to_array } from "./binHelper.js"
+import { plotViolin } from "./plotViolin.js"
+import { plotStepSeqMain } from "./step_sequencer.js"
+import { plotGPWave } from "./GPplot.js"
+import { mountSynthScienceDiv } from "./synthScienceDiv.js"
+import { plotGene } from "./gene_plots.js"
+import { setupHelpPopUps } from "./helpPopup.js"
+import { setupVirtualPiano, assign_keyboard_keys } from "./virtualPiano.js"
+import { searchbar } from "./searchbar.js"
+import { initGlobalAudio } from "./globalVolumeControl.js"
 import {
     loadMidiEvents,
     createMidiTransport,
     geneToWavetable,
     setTrackWavetable,
     clearTrackWavetable,
-} from "/src/midiplayer.js"
-import { stepSeqTutorial } from "/src/StepSeqTutorial.js"
-import { midiTrackPlots } from "/src/midiTrackPlot.js"
+} from "./midiplayer.js"
+import { stepSeqTutorial } from "./StepSeqTutorial.js"
+import { midiTrackPlots } from "./midiTrackPlot.js"
 // ---- add a bus for communication between modules ----
 const bus = {
     _listeners: {},
@@ -33,14 +33,14 @@ const bus = {
 
 // ---- one shared AudioContext + master volume for the whole page ----
 // Context is created now and auto-resumes on the first user gesture (see globalVolumeControl.js).
-const globalAudio = initGlobalAudio({ workletUrl: "/src/audio_processor.js" })
+const globalAudio = initGlobalAudio({ workletUrl: new URL("./audio_processor.js", import.meta.url).href })
 
 // --------------------------------------- load data ---------------------------------------
 // UMAP bins are x/y only (same gene order as Normalized_counts / VST).
-const count_arr = await bin_to_array("/dat/Normalized_counts.bin", "/dat/bin_meta.json")
-const VST_arr = await bin_to_array("/dat/VST.bin", "/dat/bin_meta.json")
-const count_umap_arr = await bin_to_array("/dat/count_umap.bin", "/dat/bin_meta.json")
-const fft_umap_arr = await bin_to_array("/dat/fft_umap.bin", "/dat/bin_meta.json")
+const count_arr = await bin_to_array("./dat/Normalized_counts.bin", "./dat/bin_meta.json")
+const VST_arr = await bin_to_array("./dat/VST.bin", "./dat/bin_meta.json")
+const count_umap_arr = await bin_to_array("./dat/count_umap.bin", "./dat/bin_meta.json")
+const fft_umap_arr = await bin_to_array("./dat/fft_umap.bin", "./dat/bin_meta.json")
 
 if (
     count_arr.length !== count_umap_arr.length ||
@@ -62,7 +62,7 @@ for (let i = 0; i < count_arr.length; i++) {
 }
 
 const [metaValues, osc_perGene_meta, shared, osc_perGene_mu, osc_perGene_std] =
-    await load_waveforms("/dat/waveforms.bin", "/dat/bin_meta.json")
+    await load_waveforms(["./dat/waveforms.part0.bin", "./dat/waveforms.part1.bin"], "./dat/bin_meta.json")
 const normalized_counts_lookup = new Map(count_arr.map((val) => [val.GeneID, val]))
 const VST_lookup = new Map(VST_arr.map((val) => [val.GeneID, val]))
 
@@ -179,7 +179,7 @@ const MIDI_TRACKS = [
     { id: "bass", label: "Bass", trackIndex: 3 },
     { id: "brass", label: "Brass", trackIndex: 4 },
 ]
-const MIDI_FILE = "/dat/NGGYU.mid"
+const MIDI_FILE = "./dat/NGGYU.mid"
 let midiEvents = null
 let midiTransport = null
 let midiTrackCounts = null

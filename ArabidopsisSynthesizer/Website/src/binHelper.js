@@ -43,20 +43,24 @@ export async function bin_to_array(path_to_bin, path_to_meta) {
     })
 }
 
-/**
- * Load GP waveforms into a SharedArrayBuffer for the step-seq audio worklet.
- * Copies mu/std out (VST scale), then peak-normalizes the N_SAMPLES curves in place for audio.
- */
 
-export async function load_waveforms(path_to_bin, path_to_meta) {
-    const file_name = path_to_bin.split("/").pop()
+
+export async function load_waveforms(part_paths, path_to_meta, file_name = "waveforms.bin") {
+    if (typeof SharedArrayBuffer === "undefined" || !self.crossOriginIsolated) {
+        throw new Error(
+            "SharedArrayBuffer unavailable: page is not cross-origin isolated (missing COOP/COEP headers)"
+        )
+    }
     const meta_json = await meta_to_json(path_to_meta, file_name)
 
-    const resp = await fetch(path_to_bin)
-    if (!resp.ok) {
-        throw new Error(`Failed to fetch waveforms ${path_to_bin}: ${resp.status}`)
-    }
-    const buff = await resp.arrayBuffer()
+    const parts = await Promise.all(part_paths.map(async (p) => {
+        const resp = await fetch(p)
+        if (!resp.ok) {
+            throw new Error(`Failed to fetch waveforms ${p}: ${resp.status}`)
+        }
+        return new Uint8Array(await resp.arrayBuffer())
+    }))
+    const totalBytes = parts.reduce((sum, p) => sum + p.byteLength, 0)
 
     const nrows = meta_json.meta.length
     const { N_GRID, N_SAMPLES, N_WAVES, WAVE_KEYS, BYTE_OFFSET } = meta_json
@@ -67,9 +71,9 @@ export async function load_waveforms(path_to_bin, path_to_meta) {
             `waveforms BYTE_OFFSET ${BYTE_OFFSET} != N_WAVES*N_GRID*4 (${BLOCK * 4})`
         )
     }
-    if (buff.byteLength !== nrows * BLOCK * 4) {
+    if (totalBytes !== nrows * BLOCK * 4) {
         throw new Error(
-            `waveforms.bin size ${buff.byteLength} != ${nrows} genes * ${BLOCK * 4}`
+            `waveforms.bin size ${totalBytes} != ${nrows} genes * ${BLOCK * 4}`
         )
     }
 
@@ -82,9 +86,13 @@ export async function load_waveforms(path_to_bin, path_to_meta) {
         WAVE_KEYS,
     }
 
-    const shared = new SharedArrayBuffer(buff.byteLength)
-    const sharedView = new Float32Array(shared)
-    sharedView.set(new Float32Array(buff))
+    const shared = new SharedArrayBuffer(totalBytes)
+    const sharedBytes = new Uint8Array(shared)
+    let offset = 0
+    for (const p of parts) {
+        sharedBytes.set(p, offset)
+        offset += p.byteLength
+    }
 
     const mu = new Array(nrows)
     const std = new Array(nrows)

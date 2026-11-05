@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Eric J. Y. Yang — scientist and builder. Interactive figures, gene sonification, and plant synthetic biology projects.">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#f7f8fa">
     <title>Eric J. Y. Yang</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       "dateCreated": "2023-12-29T06:28:33Z",
-      "dateModified": "2026-03-29T12:00:00Z",
+      "dateModified": "2026-11-05T12:00:00Z",
       "mainEntity": {
         "@type": "Person",
         "name": "Eric J. Y. Yang",
@@ -31,55 +33,175 @@
       }
     }
     </script>
-    <link rel="icon" href="images/Favicon/favicon.ico">
+    <link rel="icon" href="/images/Favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon/favicon-16x16.png">
 </head>
 <body>
-    <h1>Eric J.Y. Yang</h1>
-    <p>I enjoying solving problems, building things, and making noises.</p>
-
-    <h2>Data Visualization</h2>
-    <ol>
-        <li>Arabidopsis Synthesizer</li>
-        <a href="ArabidopsisSynthesizer/Website/index.html">link</a>
-        <p>Taking transcriptional data over time and turning them into sounds you can play.</p>
-        <li>Arabidopsis Stable Genes Exploration</li>
-        <!-- Make this foldable! -->
-        <div class="Observable" id = "Observable"> 
-                        <div class="Observable-left">
-                            <iframe width="100%" height="100%" frameborder="0"
-                            src="https://observablehq.com/embed/15a480dacc56a549@335?cells=Title%2CDescription"></iframe>
-                        </div>
-                
-                        <div class="Observable-right">
-                            <iframe width="100%" height="93%" frameborder="0" 
-                            src="https://observablehq.com/embed/15a480dacc56a549@343?cells=viewof+Coretypes%2CFigure"></iframe>
-                        </div>
+    <nav class="top-nav" aria-label="Sections">
+        <a class="top-nav__brand" href="#top">EJY</a>
+        <div class="top-nav__links">
+            <a href="#projects">Projects</a>
+            <a href="#papers">Papers</a>
+            <a href="#music">Music</a>
+            <a href="#contact">Contact</a>
         </div>
-    </ol>
+    </nav>
 
-    <h2>Scientific Papers</h2>
-    <ol>
-        <li>Yang, E. J. Y., & Nemhauser, J. L. (2022). En ROOT to plant logic. GEN Biotechnology, 1(5).</li>
-        <li>Yang, E. J. Y., & Nemhauser, J. L. (2023). Building a pipeline to identify and engineer constitutive and repressible promoters. Quantitative Plant Biology, 4(12).</li>
-        <li>Yang, E. J. Y., Maranas, C. J., & Nemhauser, J. L. (2023). A comparative analysis of stably expressed genes across diverse angiosperms exposes flexibility in underlying promoter architecture. G3: Genes, Genomes, Genetics, 13(11).</li>
-        <li>Cam Chau Nguyen, Sandra Thibivilliers, Yaohua Li, Christopher T. Fazekas, Eric J. Y. Yang, et al. Uncovering the core genetic programs governing plant guard cell biology. New Phytologist. 2025.</li>
-        <li>Thibivilliers, S., Cervantes-Perez, S. A., Yang, E. J. Y., et al. Decoding the landscape of cell-type-specific co-expressed transcription factors in soybean. Nature Plants. 2026</li>
-    </ol>
+    <header class="hero" id="top">
+        <div class="hero__inner">
+            <p class="eyebrow">Molecular Engineering PhD</p>
+            <h1 class="hero__title">Eric J.&thinsp;Y. Yang</h1>
+            <p class="hero__lede">
+                I enjoy solving problems, building things, and making noises
+            </p>
+            <div class="hero__actions">
+                <a class="btn btn--primary" href="#projects">See projects</a>
+                <a class="btn" href="#contact">Get in touch</a>
+            </div>
+        </div>
 
+    </header>
 
-    <h2>Music Projects</h2>
-    <ol>
-        <li>https://www.youtube.com/@PoPoPoltergeist</li>
-        <li>https://soundcloud.com/ewwwic/sets/popopoltergeist</li>
-    </ol>
+    <main>
+        <section class="section" id="projects" aria-labelledby="projects-heading">
+            <div class="section__head">
+                <span class="section__index" aria-hidden="true">01</span>
+                <h2 id="projects-heading">Data Visualization</h2>
+            </div>
 
-    <h2>Contact</h2>
-    <ol>
-        <li class="email">email: email@ericyang.phd</li>
-        <li>LinkedIn: https://www.linkedin.com/in/eric-jy-yang/</li>
-    </ol>
+            <a class="feature-card" href="ArabidopsisSynthesizer/Website/">
+                <div class="feature-card__body">
+                    <span class="badge badge--teal">Interactive · Audio</span>
+                    <h3>Arabidopsis Synthesizer</h3>
+                    <p>Taking transcriptional data over time and turning them into sounds you can play.</p>
+                    <span class="feature-card__cta">Launch the synthesizer <span aria-hidden="true">→</span></span>
+                </div>
+                <svg class="feature-card__art" viewBox="0 0 240 140" aria-hidden="true">
+                    <rect x="0" y="0" width="240" height="140" rx="12" fill="var(--color-accent-soft)" />
+                    <g fill="none" stroke-width="3" stroke-linecap="round">
+                        <path d="M16 70 C 40 20, 64 20, 88 70 S 136 120, 160 70 S 208 20, 224 50" stroke="var(--cb-indigo)" />
+                        <path d="M16 85 C 46 110, 76 110, 106 80 S 166 40, 196 70 S 216 95, 224 90" stroke="var(--cb-teal)" opacity="0.85" />
+                        <path d="M16 55 C 36 75, 56 35, 76 55 S 116 75, 136 55 S 176 35, 224 62" stroke="var(--cb-rose)" opacity="0.7" />
+                    </g>
+                    <g fill="var(--cb-indigo)">
+                        <circle cx="52" cy="32" r="3.5" /><circle cx="124" cy="108" r="3.5" /><circle cx="196" cy="32" r="3.5" />
+                    </g>
+                </svg>
+            </a>
+
+            <details class="fold">
+                <summary class="fold__summary">
+                    <span class="badge badge--sand">Observable</span>
+                    <span class="fold__title">Arabidopsis Stable Genes Exploration</span>
+                    <span class="fold__chevron" aria-hidden="true"></span>
+                </summary>
+                <div class="fold__body observable">
+                    <div class="observable__left">
+                        <iframe title="Stable genes: description" loading="lazy" frameborder="0"
+                            src="https://observablehq.com/embed/15a480dacc56a549@335?cells=Title%2CDescription"></iframe>
+                    </div>
+                    <div class="observable__right">
+                        <iframe title="Stable genes: interactive figure" loading="lazy" frameborder="0"
+                            src="https://observablehq.com/embed/15a480dacc56a549@343?cells=viewof+Coretypes%2CFigure"></iframe>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <section class="section" id="papers" aria-labelledby="papers-heading">
+            <div class="section__head">
+                <span class="section__index" aria-hidden="true">02</span>
+                <h2 id="papers-heading">Scientific Papers</h2>
+            </div>
+            <ol class="papers">
+                <li class="paper">
+                    <span class="paper__year">2026</span>
+                    <div>
+                        <p class="paper__title">Decoding the landscape of cell-type-specific co-expressed transcription factors in soybean.</p>
+                        <p class="paper__meta">Thibivilliers, S., Cervantes-Perez, S. A., <strong>Yang, E. J. Y.</strong>, et al. · <em>Nature Plants</em></p>
+                    </div>
+                </li>
+                <li class="paper">
+                    <span class="paper__year">2025</span>
+                    <div>
+                        <p class="paper__title">Uncovering the core genetic programs governing plant guard cell biology.</p>
+                        <p class="paper__meta">Nguyen, C. C., Thibivilliers, S., Li, Y., Fazekas, C. T., <strong>Yang, E. J. Y.</strong>, et al. · <em>New Phytologist</em></p>
+                    </div>
+                </li>
+                <li class="paper">
+                    <span class="paper__year">2023</span>
+                    <div>
+                        <p class="paper__title">A comparative analysis of stably expressed genes across diverse angiosperms exposes flexibility in underlying promoter architecture.</p>
+                        <p class="paper__meta"><strong>Yang, E. J. Y.</strong>, Maranas, C. J., &amp; Nemhauser, J. L. · <em>G3: Genes, Genomes, Genetics</em>, 13(11)</p>
+                    </div>
+                </li>
+                <li class="paper">
+                    <span class="paper__year">2023</span>
+                    <div>
+                        <p class="paper__title">Building a pipeline to identify and engineer constitutive and repressible promoters.</p>
+                        <p class="paper__meta"><strong>Yang, E. J. Y.</strong>, &amp; Nemhauser, J. L. · <em>Quantitative Plant Biology</em>, 4(12)</p>
+                    </div>
+                </li>
+                <li class="paper">
+                    <span class="paper__year">2022</span>
+                    <div>
+                        <p class="paper__title">En ROOT to plant logic.</p>
+                        <p class="paper__meta"><strong>Yang, E. J. Y.</strong>, &amp; Nemhauser, J. L. · <em>GEN Biotechnology</em>, 1(5)</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section" id="music" aria-labelledby="music-heading">
+            <div class="section__head">
+                <span class="section__index" aria-hidden="true">03</span>
+                <h2 id="music-heading">Music Projects</h2>
+            </div>
+            <div class="link-grid">
+                <a class="link-card link-card--rose" href="https://www.youtube.com/@PoPoPoltergeist" target="_blank" rel="noopener">
+                    <span class="link-card__label">YouTube</span>
+                    <span class="link-card__handle">@PoPoPoltergeist</span>
+                    <span class="link-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="link-card link-card--sand" href="https://soundcloud.com/ewwwic/sets/popopoltergeist" target="_blank" rel="noopener">
+                    <span class="link-card__label">SoundCloud</span>
+                    <span class="link-card__handle">ewwwic / popopoltergeist</span>
+                    <span class="link-card__arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-heading">
+            <div class="section__head">
+                <span class="section__index" aria-hidden="true">04</span>
+                <h2 id="contact-heading">Contact</h2>
+            </div>
+            <div class="link-grid">
+                <button class="link-card link-card--indigo email" type="button" data-email="mail@ericyang.phd">
+                    <span class="link-card__label">Email</span>
+                    <span class="link-card__handle">mail@ericyang.phd</span>
+                    <span class="email__hint" aria-live="polite">Click to copy</span>
+                </button>
+                <a class="link-card link-card--teal" href="https://www.linkedin.com/in/eric-jy-yang/" target="_blank" rel="noopener">
+                    <span class="link-card__label">LinkedIn</span>
+                    <span class="link-card__handle">in/eric-jy-yang</span>
+                    <span class="link-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="link-card link-card--purple" href="https://github.com/Eric-junyao-Yang" target="_blank" rel="noopener">
+                    <span class="link-card__label">GitHub</span>
+                    <span class="link-card__handle">Eric-junyao-Yang</span>
+                    <span class="link-card__arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> Eric J. Y. Yang</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

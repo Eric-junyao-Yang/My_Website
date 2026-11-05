@@ -1,5 +1,5 @@
-import { interpolate_waveform, ldTimepoints } from "/src/catmullrom.js"
-import { PALETTE, THEME, drawAxis, axisLabel } from "/src/plotTheme.js"
+import { interpolate_waveform, ldTimepoints } from "./catmullrom.js"
+import { PALETTE, THEME, drawAxis, axisLabel } from "./plotTheme.js"
 
 export function plotGene(g, gene_dats, gene_names, opts = {
     width: 800,

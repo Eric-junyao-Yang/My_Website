@@ -4,7 +4,7 @@
 //     return originalGetContext.call(this, type, ...args)
 // }
 
-import { THEME, hexToRgb01, withAlpha, drawAxis, axisLabel, plotTitle, containerSize, onResize } from "/src/plotTheme.js"
+import { THEME, hexToRgb01, withAlpha, drawAxis, axisLabel, plotTitle, containerSize, onResize } from "./plotTheme.js"
 
 const ACTIVE_RGB = hexToRgb01(THEME.pointActive).map((v) => v.toFixed(4)).join(", ")
 const INACTIVE_RGB = hexToRgb01(THEME.pointInactive).map((v) => v.toFixed(4)).join(", ")

@@ -1,5 +1,5 @@
-import { interpolate_waveform, maxAbsScaling, ldTimepoints } from "/src/catmullrom.js"
-import { PALETTE, THEME, withAlpha } from "/src/plotTheme.js"
+import { interpolate_waveform, maxAbsScaling, ldTimepoints } from "./catmullrom.js"
+import { PALETTE, THEME, withAlpha } from "./plotTheme.js"
 
 export class Synth_Waveform {
     constructor(canvas, bus, count_arr) { 

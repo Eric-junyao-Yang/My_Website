@@ -1,4 +1,4 @@
-import { toUnipolarWavetable, ldTimepoints } from "/src/catmullrom.js"
+import { toUnipolarWavetable, ldTimepoints } from "./catmullrom.js"
 import { Midi } from "https://esm.sh/@tonejs/midi@2.0.28"
 
 const LOOKAHEAD_SEC = 0.1

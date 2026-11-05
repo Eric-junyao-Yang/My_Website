@@ -1,4 +1,4 @@
-import { toUnipolarWavetable, catmullrom } from "/src/catmullrom.js"
+import { toUnipolarWavetable, catmullrom } from "./catmullrom.js"
 
 const TABLE_SIZE = 2048
 

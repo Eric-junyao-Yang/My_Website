@@ -1,12 +1,12 @@
 // Kept for posterity — the live Science fold uses /src/synthScienceDiv.js instead.
-import { interpolate_waveform } from "/src/catmullrom.js"
-import { PALETTE, THEME } from "/src/plotTheme.js"
+import { interpolate_waveform } from "./catmullrom.js"
+import { PALETTE, THEME } from "./plotTheme.js"
 
 const arabidopsisSlide = {
     elements: {
         arabidopsis(g) {
             g.append("image")
-                .attr("href", "/img/Athaliana.png")
+                .attr("href", "./img/Athaliana.png")
                 .attr("width", 150)
                 .attr("height", 290)
                 .attr("x", 0)
@@ -20,7 +20,7 @@ const arabidopsisSlide = {
         },
         genome(g) {
             g.append("image")
-                .attr("href", "/img/Genome.png")
+                .attr("href", "./img/Genome.png")
                 .attr("width", 500).attr("height", 200)
                 .attr("x", 150).attr("y", 80)
             g.append("text")
@@ -38,15 +38,15 @@ const arabidopsisSlide = {
         },
         stimuli(g){
             g.append("image")
-                .attr("href", "/img/Stimuli_sun.png")
+                .attr("href", "./img/Stimuli_sun.png")
                 .attr("width", 120).attr("height", 120)
                 .attr("x", 290).attr("y", 10)        
             g.append("image")
-                .attr("href", "/img/Stimuli_rain.png")
+                .attr("href", "./img/Stimuli_rain.png")
                 .attr("width", 120).attr("height", 120)
                 .attr("x", 430).attr("y", 20)
             g.append("image")
-                .attr("href", "/img/Stimuli_bug.png")
+                .attr("href", "./img/Stimuli_bug.png")
                 .attr("width", 100).attr("height", 100)
                 .attr("x", 380).attr("y", 120)
         },
